@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Dictionary } from "@/lib/i18n/types";
-import { WaitlistForm } from "./WaitlistForm";
+import { primaryCtaPath } from "@/lib/config";
 import { ImageSlot } from "./ImageSlot";
 
 /**
@@ -72,16 +72,36 @@ export function Hero({ locale, dict, lines, lead }: { locale: Locale; dict: Dict
             <div
               style={{
                 marginTop: "var(--space-lg)",
-                maxWidth: 360,
+                display: "flex",
+                flexDirection: "column",
+                gap: "var(--space-2xs)",
+                alignItems: "flex-start",
                 animation: "pulseFade var(--motion-duration-slow) var(--motion-ease-standard) 420ms both",
               }}
             >
-              <WaitlistForm dict={home.waitlist} />
-              <div style={{ marginTop: "var(--space-sm)" }}>
-                <Link href={`/${locale}/contact`} style={{ fontSize: 15 }}>
-                  {home.hero.secondaryCta}
-                </Link>
-              </div>
+              <Link
+                href={`/${locale}${primaryCtaPath}`}
+                style={{
+                  minHeight: 56,
+                  minWidth: 220,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "0 var(--space-lg)",
+                  borderRadius: "var(--radius-md)",
+                  background: "var(--color-action-primary)",
+                  color: "var(--color-action-primary-text)",
+                  fontSize: "var(--step-lead-en)",
+                  fontWeight: 600,
+                  textDecoration: "none",
+                  textAlign: "center",
+                }}
+              >
+                {home.ctaLabel}
+              </Link>
+              <Link href={`/${locale}/contact`} style={{ fontSize: 15 }}>
+                {home.hero.secondaryCta}
+              </Link>
             </div>
           </div>
           <div>

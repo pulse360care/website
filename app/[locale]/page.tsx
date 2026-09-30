@@ -16,7 +16,6 @@ import { JoinUsTeaser } from "@/components/JoinUsTeaser";
 import { ArticlesTeaser } from "@/components/ArticlesTeaser";
 import { CtaBand } from "@/components/CtaBand";
 import { ContactTeaser } from "@/components/ContactTeaser";
-import { WaitlistForm } from "@/components/WaitlistForm";
 import { Reveal } from "@/components/Reveal";
 import { notFound } from "next/navigation";
 
@@ -106,9 +105,7 @@ export default async function HomePage(props: PageProps<"/[locale]">) {
       </Reveal>
 
       <Reveal>
-        <CtaBand wordmark={dict.nav.brand} title={home.ctaBand.title} brief={home.ctaBand.brief}>
-          <WaitlistForm dict={home.waitlist} inverse />
-        </CtaBand>
+        <CtaBand locale={locale} wordmark={dict.nav.brand} title={home.ctaBand.title} brief={home.ctaBand.brief} ctaLabel={home.ctaLabel} />
       </Reveal>
 
       <Reveal>

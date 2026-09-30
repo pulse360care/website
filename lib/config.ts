@@ -27,8 +27,8 @@ export const doctorLive = false;
 export const foundersVisible = false;
 
 /**
- * Primary CTA destination. The design left this open as a three-way
- * comparison (waitlist / app-store / launching-soon); "waitlist" was
- * chosen for this build.
+ * Primary CTA destination (CHANGES-2026-09-30 #8). The design's earlier
+ * waitlist / app-store / launching-soon comparison is resolved: both the
+ * hero and the CTA band link straight to the contact form.
  */
-export const ctaMode = "waitlist" as const;
+export const primaryCtaPath = "/contact";

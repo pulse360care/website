@@ -31,6 +31,8 @@ export const en = {
     terms: "Terms",
   },
   home: {
+    /** Shared by the hero and the CTA band — one primary CTA, one label. */
+    ctaLabel: "Tell us what you need",
     hero: {
       eyebrow: "Chennai · care at home",
       fourService: {
@@ -251,13 +253,6 @@ export const en = {
       body: "We reply in Tamil or English, between 9am and 8pm.",
       cta: "Open the contact form",
       emergencyNote: "In an emergency do not use this page. Call 108.",
-    },
-    waitlist: {
-      emailPlaceholder: "Your email address",
-      button: "Join the waitlist",
-      note: "We will email you once, when Pulse opens in your neighbourhood. Nothing else.",
-      privacyLinkLabel: "How we handle your details",
-      invalidEmail: "Enter a valid email address.",
     },
   },
   verification: {
