@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/i18n/locales";
 import { getDictionary } from "@/lib/i18n";
 import { doctorLive } from "@/lib/config";
+import { contactDetails } from "@/lib/contact";
 import { ContactForm } from "@/components/ContactForm";
 
 export default async function ContactPage(props: PageProps<"/[locale]/contact">) {
@@ -11,9 +12,9 @@ export default async function ContactPage(props: PageProps<"/[locale]/contact">)
   const t = dict.contact;
 
   const contactRows = [
-    { label: t.whatsappLabel, value: t.whatsappPlaceholder, href: "https://wa.me/910000000000" },
-    { label: t.phoneLabel, value: t.phonePlaceholder, href: "#" },
-    { label: t.emailLabel, value: t.emailPlaceholder, href: `mailto:${t.emailPlaceholder}` },
+    { label: t.whatsappLabel, value: contactDetails.whatsapp, href: contactDetails.whatsappHref },
+    { label: t.phoneLabel, value: contactDetails.phone, href: contactDetails.phoneHref },
+    { label: t.emailLabel, value: contactDetails.email, href: contactDetails.emailHref },
   ];
 
   return (

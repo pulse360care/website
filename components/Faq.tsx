@@ -1,12 +1,10 @@
 export function Faq({
   eyebrow,
   heading,
-  note,
   items,
 }: {
   eyebrow: string;
   heading: string;
-  note: string;
   items: { q: string; a: string }[];
 }) {
   return (
@@ -44,7 +42,6 @@ export function Faq({
             </details>
           ))}
         </div>
-        <p style={{ margin: 0, fontSize: 13, color: "var(--color-text-secondary)" }}>{note}</p>
       </div>
     </div>
   );

@@ -24,9 +24,11 @@ export const ta: Dictionary = {
   footer: {
     blurb: "சென்னை — அடையாறு, பெசன்ட் நகர், திருவான்மியூர் பகுதிகளில் வீட்டு பராமரிப்பு வருகைகள்.",
     pagesHeading: "பக்கங்கள்",
-    elsewhereHeading: "வெளியே",
-    social: ["Instagram", "LinkedIn", "WhatsApp"],
-    legal: "சட்டப்பூர்வ வரி — நிரப்பப்படும்",
+    elsewhereHeading: "எங்களைத் தொடரவும்",
+    social: ["WhatsApp", "Instagram", "YouTube"],
+    contactHeading: "தொடர்பு",
+    localityLink: "சென்னையும் சுற்றுப்புறங்களும்",
+    legal: "© Pulse360Care. சட்டப்பூர்வ வரி — நிரப்பப்படும்",
     privacy: "தனியுரிமை",
     terms: "விதிமுறைகள்",
   },
@@ -201,7 +203,6 @@ export const ta: Dictionary = {
     faq: {
       eyebrow: "பொதுவான கேள்விகள்",
       heading: "குடும்பங்கள் முதலில் கேட்பவை",
-      note: "கற்பனையான கேள்வியாளர்கள் இல்லை. பதில் உள்ள கேள்விகள் மட்டுமே.",
       items: [
         { q: "எந்தப் பகுதிகளில் சேவை?", a: "அடையாறு மற்றும் பெசன்ட் நகரில் தொடங்குகிறோம். வெளியே இருந்தால் செயலி அதைச் சொல்லிவிடும்." },
         { q: "பணியாளர் தகுதியானவரா என எப்படித் தெரியும்?", a: "எங்கள் குழுவினர் பதிவையும் சான்றிதழையும், அடையாள அட்டையையும் பெயரையும் சரிபார்க்கிறார்கள்." },
@@ -505,9 +506,6 @@ export const ta: Dictionary = {
     phoneLabel: "தொலைபேசி",
     whatsappLabel: "WhatsApp",
     emailLabel: "மின்னஞ்சல்",
-    phonePlaceholder: "எண் — நிரப்பப்படும்",
-    whatsappPlaceholder: "எண் — நிரப்பப்படும்",
-    emailPlaceholder: "hello@placeholder",
     hoursNote: "நேர விவரம் — நிரப்பப்படும்.",
     sent: {
       title: "நன்றி — உங்கள் விவரங்கள் கிடைத்தன.",

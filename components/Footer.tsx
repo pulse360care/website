@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Dictionary } from "@/lib/i18n/types";
+import { contactDetails } from "@/lib/contact";
 
 export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const base = `/${locale}`;
@@ -11,6 +12,19 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
     { href: `${base}/for-professionals`, label: dict.nav.professionals },
     { href: `${base}/for-hospitals`, label: dict.nav.hospitals },
     { href: `${base}/contact`, label: dict.nav.contact },
+  ];
+  // Index-coupled to dict.footer.social's fixed [WhatsApp, Instagram, YouTube]
+  // order (see the dictionaries) — WhatsApp is the only real destination
+  // until the Instagram/YouTube accounts exist.
+  const social = [
+    { label: dict.footer.social[0], href: contactDetails.whatsappHref, real: true },
+    { label: dict.footer.social[1], href: "#", real: false },
+    { label: dict.footer.social[2], href: "#", real: false },
+  ];
+  const contactLinks = [
+    { label: contactDetails.phone, href: contactDetails.phoneHref },
+    { label: contactDetails.email, href: contactDetails.emailHref },
+    { label: dict.footer.localityLink, href: `${base}/contact` },
   ];
 
   return (
@@ -26,7 +40,7 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
         <p style={{ margin: "var(--space-xs) 0 var(--space-lg)", fontSize: 15, opacity: 0.92, maxWidth: "60ch" }}>
           {dict.footer.blurb}
         </p>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))", gap: "var(--space-md)", maxWidth: 480 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))", gap: "var(--space-md)", maxWidth: 720 }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-xs)" }}>
             <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: locale === "en" ? ".06em" : undefined, opacity: 0.7 }}>
               {dict.footer.pagesHeading}
@@ -41,12 +55,28 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
             <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: locale === "en" ? ".06em" : undefined, opacity: 0.7 }}>
               {dict.footer.elsewhereHeading}
             </div>
-            {/* WEB-D08: social links are text labels, never icon-only. These are not yet
-                real destinations — wire up when the accounts exist. */}
-            {dict.footer.social.map((label) => (
-              <span key={label} style={{ fontSize: 15, minHeight: 24 }}>
-                {label}
-              </span>
+            {/* WEB-D08: social links are text labels, never icon-only. Instagram
+                and YouTube have no account yet, so they stay `#` + nofollow
+                rather than a dead real-looking link. */}
+            {social.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                rel={s.real ? undefined : "nofollow"}
+                style={{ fontSize: 15, minHeight: 24, color: "var(--color-text-inverse)" }}
+              >
+                {s.label}
+              </a>
+            ))}
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-xs)" }}>
+            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: locale === "en" ? ".06em" : undefined, opacity: 0.7 }}>
+              {dict.footer.contactHeading}
+            </div>
+            {contactLinks.map((c) => (
+              <a key={c.label} href={c.href} style={{ fontSize: 15, minHeight: 24, color: "var(--color-text-inverse)" }}>
+                {c.label}
+              </a>
             ))}
           </div>
         </div>

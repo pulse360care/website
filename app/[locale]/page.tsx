@@ -1,6 +1,7 @@
 import { isLocale } from "@/lib/i18n/locales";
 import { getDictionary } from "@/lib/i18n";
 import { doctorLive, foundersVisible } from "@/lib/config";
+import { contactDetails } from "@/lib/contact";
 import { Hero } from "@/components/Hero";
 import { WhatWeCheck } from "@/components/WhatWeCheck";
 import { AboutStrip } from "@/components/AboutStrip";
@@ -43,9 +44,9 @@ export default async function HomePage(props: PageProps<"/[locale]">) {
   const joinRoles = dict.professionals.roles.slice(0, doctorLive ? 4 : 3);
 
   const contactRows = [
-    { label: dict.contact.whatsappLabel, value: dict.contact.whatsappPlaceholder, href: "#" },
-    { label: dict.contact.phoneLabel, value: dict.contact.phonePlaceholder, href: "#" },
-    { label: dict.contact.emailLabel, value: dict.contact.emailPlaceholder, href: `mailto:${dict.contact.emailPlaceholder}` },
+    { label: dict.contact.whatsappLabel, value: contactDetails.whatsapp, href: contactDetails.whatsappHref },
+    { label: dict.contact.phoneLabel, value: contactDetails.phone, href: contactDetails.phoneHref },
+    { label: dict.contact.emailLabel, value: contactDetails.email, href: contactDetails.emailHref },
   ];
 
   return (
@@ -85,7 +86,7 @@ export default async function HomePage(props: PageProps<"/[locale]">) {
       </Reveal>
 
       <Reveal>
-        <Faq eyebrow={home.faq.eyebrow} heading={home.faq.heading} note={home.faq.note} items={home.faq.items} />
+        <Faq eyebrow={home.faq.eyebrow} heading={home.faq.heading} items={home.faq.items} />
       </Reveal>
 
       <Reveal>
@@ -96,7 +97,7 @@ export default async function HomePage(props: PageProps<"/[locale]">) {
           zone={home.joinTeaser.zone}
           roles={joinRoles}
           cta={home.joinTeaser.cta}
-          ctaHref="https://wa.me/910000000000"
+          ctaHref={contactDetails.whatsappHref}
         />
       </Reveal>
 

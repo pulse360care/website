@@ -22,9 +22,11 @@ export const en = {
   footer: {
     blurb: "Home care visits in Adyar, Besant Nagar and Thiruvanmiyur, Chennai.",
     pagesHeading: "Pages",
-    elsewhereHeading: "Elsewhere",
-    social: ["Instagram", "LinkedIn", "WhatsApp"],
-    legal: "Placeholder legal line",
+    elsewhereHeading: "Find us",
+    social: ["WhatsApp", "Instagram", "YouTube"],
+    contactHeading: "Contact",
+    localityLink: "Chennai and surroundings",
+    legal: "© Pulse360Care. Placeholder legal line",
     privacy: "Privacy",
     terms: "Terms",
   },
@@ -199,7 +201,6 @@ export const en = {
     faq: {
       eyebrow: "Common questions",
       heading: "What families ask first",
-      note: "No invented questioners. These are the questions the product actually has answers to.",
       items: [
         {
           q: "Which areas do you cover?",
@@ -534,9 +535,6 @@ export const en = {
     phoneLabel: "Phone",
     whatsappLabel: "WhatsApp",
     emailLabel: "Email",
-    phonePlaceholder: "placeholder number",
-    whatsappPlaceholder: "placeholder number",
-    emailPlaceholder: "hello@placeholder",
     hoursNote: "Hours placeholder.",
     sent: {
       title: "Thank you — we have your details.",

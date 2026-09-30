@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/i18n/locales";
 import { getDictionary } from "@/lib/i18n";
 import { doctorLive } from "@/lib/config";
+import { contactDetails } from "@/lib/contact";
 
 export default async function ProfessionalsPage(props: PageProps<"/[locale]/for-professionals">) {
   const { locale } = await props.params;
@@ -54,7 +55,7 @@ export default async function ProfessionalsPage(props: PageProps<"/[locale]/for-
           </p>
 
           <a
-            href="https://wa.me/910000000000"
+            href={contactDetails.whatsappHref}
             style={{
               minHeight: 56,
               minWidth: 220,
