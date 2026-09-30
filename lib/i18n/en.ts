@@ -1,8 +1,8 @@
 export const en = {
   meta: {
-    title: "Pulse — home healthcare in Adyar, Besant Nagar and Thiruvanmiyur",
+    title: "Pulse — home healthcare in Chennai and its surroundings",
     description:
-      "Doctor consultations, nursing, physiotherapy and lab collection, arranged at home in Adyar, Besant Nagar and Thiruvanmiyur, Chennai.",
+      "Doctor consultations, nursing, physiotherapy and lab collection, arranged at home in Chennai and its surroundings.",
   },
   nav: {
     brand: "Pulse",
@@ -20,7 +20,7 @@ export const en = {
     langToggleLabel: "Language",
   },
   footer: {
-    blurb: "Home care visits in Adyar, Besant Nagar and Thiruvanmiyur, Chennai.",
+    blurb: "Home care visits in Chennai and its surroundings.",
     pagesHeading: "Pages",
     elsewhereHeading: "Find us",
     social: ["WhatsApp", "Instagram", "YouTube"],
@@ -35,13 +35,13 @@ export const en = {
       eyebrow: "Chennai · care at home",
       fourService: {
         lines: ["Care comes to", "your parents —", "at home, or by video"],
-        lead: "Doctor consultations, nursing, physiotherapy and lab collection, arranged in Adyar, Besant Nagar and Thiruvanmiyur. Almost all of it happens at your parents’ home — a consultation can start on video when that is faster.",
+        lead: "Doctor consultations, nursing, physiotherapy and lab collection, arranged in Chennai and its surroundings. Almost all of it happens at your parents’ home — a consultation can start on video when that is faster.",
       },
       threeService: {
         lines: ["Care comes to", "your parents —", "at home"],
-        lead: "Nursing, physiotherapy and lab collection, arranged in Adyar, Besant Nagar and Thiruvanmiyur. You pick the time. We arrange the rest.",
+        lead: "Nursing, physiotherapy and lab collection, arranged in Chennai and its surroundings. You pick the time. We arrange the rest.",
       },
-      locationPill: "Starting in Adyar and Besant Nagar",
+      locationPill: "Starting in Chennai and its surroundings",
       heroBrief: "A nurse and an elderly man at a doorway in a Chennai home, warm daylight, not clinical. Subject right-of-centre.",
       heroTrust: ["Checked by a person", "Works in Tamil", "One price, agreed first"],
       secondaryCta: "Talk to someone",
@@ -55,7 +55,7 @@ export const en = {
     services: {
       heading: "What we arrange",
       subFour: "Four services, all at home. A doctor consultation can also happen on video.",
-      subThree: "Three services, every one of them at your parents’ home in Adyar, Besant Nagar and Thiruvanmiyur.",
+      subThree: "Three services, every one of them at your parents’ home in Chennai and its surroundings.",
       four: [
         {
           pill: "Home or video",
@@ -204,7 +204,7 @@ export const en = {
       items: [
         {
           q: "Which areas do you cover?",
-          a: "We start in Adyar and Besant Nagar. If your address is outside them, the app will say so rather than pretending.",
+          a: "We are starting with areas in and around Chennai. We will provide support if possible beyond that.",
         },
         {
           q: "How do I know the professional is qualified?",
@@ -228,7 +228,7 @@ export const en = {
     joinTeaser: {
       eyebrow: "Join us",
       heading: "Work near where you live",
-      body: "For nurses, attenders and physiotherapists in Adyar, Besant Nagar and Thiruvanmiyur. Joining is free, and there are never more than three documents.",
+      body: "For nurses, attenders and physiotherapists in Chennai and its surroundings. Joining is free, and there are never more than three documents.",
       zone: "Chennai · zone based",
       cta: "Message us on WhatsApp",
     },
@@ -297,7 +297,7 @@ export const en = {
   techTrust: {
     eyebrow: "Trust",
     h1: "How we check the person who knocks on your door.",
-    intro: "Manual verification is slow and expensive. That is the point.",
+    intro: "Manual verification is slow and expensive and that's why we do it.",
     trustBlocks: [
       {
         head: "What we ask for",
@@ -484,7 +484,7 @@ export const en = {
   },
   contact: {
     eyebrow: "Contact",
-    h1: "Tell us who you are and we will come back to you.",
+    h1: "Tell us who you are and we will come back to you as soon as possible.",
     lead: "A few short questions so the right person answers.",
     personaLegend: "Who is getting in touch?",
     personas: [
@@ -498,7 +498,7 @@ export const en = {
       kindThree: ["Nursing", "Physiotherapy", "Lab collection", "Not sure yet"],
       kindFour: ["Doctor consultation", "Nursing", "Physiotherapy", "Lab collection", "Not sure yet"],
       areaHeading: "Which area?",
-      area: ["Adyar", "Besant Nagar", "Elsewhere in Chennai", "Outside Chennai"],
+      areaPlaceholder: "Area, neighbourhood or pin code",
       whenHeading: "When would you need it?",
       when: ["Within a week", "This month", "Looking ahead"],
     },

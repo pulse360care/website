@@ -32,6 +32,3 @@ export const foundersVisible = false;
  * chosen for this build.
  */
 export const ctaMode = "waitlist" as const;
-
-/** Neighbourhoods served — named per WEB-D14 (never city-wide or state-wide). */
-export const neighbourhoods = ["Adyar", "Besant Nagar", "Thiruvanmiyur"] as const;

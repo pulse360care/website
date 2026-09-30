@@ -45,7 +45,7 @@ export function ContactForm({ locale, dict, doctorLive }: { locale: Locale; dict
   const [persona, setPersona] = useState<PersonaId | null>(null);
 
   const [kind, setKind] = useState<string | null>(null);
-  const [area, setArea] = useState<string | null>(null);
+  const [area, setArea] = useState("");
   const [when, setWhen] = useState<string | null>(null);
 
   const [role, setRole] = useState<string | null>(null);
@@ -78,7 +78,7 @@ export function ContactForm({ locale, dict, doctorLive }: { locale: Locale; dict
   function pickPersona(id: PersonaId) {
     setPersona(id);
     setKind(null);
-    setArea(null);
+    setArea("");
     setWhen(null);
     setRole(null);
     setRegistration(null);
@@ -91,7 +91,7 @@ export function ContactForm({ locale, dict, doctorLive }: { locale: Locale; dict
   function reset() {
     setPersona(null);
     setKind(null);
-    setArea(null);
+    setArea("");
     setWhen(null);
     setRole(null);
     setRegistration(null);
@@ -220,7 +220,13 @@ export function ContactForm({ locale, dict, doctorLive }: { locale: Locale; dict
             <ChipGroup options={kindOptions} selected={kind} onSelect={setKind} ariaLabel={t.family.kindHeading} />
           </Fieldset>
           <Fieldset legend={t.family.areaHeading}>
-            <ChipGroup options={t.family.area} selected={area} onSelect={setArea} ariaLabel={t.family.areaHeading} />
+            <input
+              value={area}
+              onChange={(e) => setArea(e.target.value)}
+              placeholder={t.family.areaPlaceholder}
+              aria-label={t.family.areaHeading}
+              style={{ minHeight: 48, maxWidth: "44ch", width: "100%", border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-md)", padding: "0 var(--space-md)", fontSize: 17, fontFamily: "inherit" }}
+            />
           </Fieldset>
           <Fieldset legend={t.family.whenHeading}>
             <ChipGroup options={t.family.when} selected={when} onSelect={setWhen} ariaLabel={t.family.whenHeading} />

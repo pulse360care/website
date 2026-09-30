@@ -1,6 +1,9 @@
 import type { Dictionary } from "./types";
 
 export const ta: Dictionary = {
+  // TA-REVIEW: en.ts dropped the named neighbourhoods for "Chennai and its
+  // surroundings" (CHANGES-2026-09-30 Sep-27 carry-over); this Tamil pair is
+  // stale until reviewed. tamilLive=false hides it in the meantime.
   meta: {
     title: "பல்ஸ் — அடையாறு, பெசன்ட் நகர், திருவான்மியூர் பகுதிகளில் வீட்டு சுகாதார சேவை",
     description:
@@ -22,6 +25,7 @@ export const ta: Dictionary = {
     langToggleLabel: "மொழி",
   },
   footer: {
+    // TA-REVIEW: en.ts blurb dropped the named neighbourhoods (see meta above).
     blurb: "சென்னை — அடையாறு, பெசன்ட் நகர், திருவான்மியூர் பகுதிகளில் வீட்டு பராமரிப்பு வருகைகள்.",
     pagesHeading: "பக்கங்கள்",
     elsewhereHeading: "எங்களைத் தொடரவும்",
@@ -37,13 +41,16 @@ export const ta: Dictionary = {
       eyebrow: "சென்னை · வீட்டு பராமரிப்பு",
       fourService: {
         lines: ["உங்கள் பெற்றோருக்கு", "பராமரிப்பு — வீட்டிலேயே,", "அல்லது வீடியோ மூலம்"],
+        // TA-REVIEW: en.ts lead dropped the named neighbourhoods (see meta above).
         lead: "மருத்துவர் ஆலோசனை, செவிலியர் பராமரிப்பு, பிசியோதெரபி, ஆய்வக மாதிரி எடுப்பு — அடையாறு, பெசன்ட் நகர், திருவான்மியூர் பகுதிகளில் ஏற்பாடு செய்கிறோம். பெரும்பாலானவை வீட்டிலேயே நடக்கும் — மருத்துவர் ஆலோசனை வேகமாக தேவையெனில் வீடியோவில் துவங்கலாம்.",
       },
       threeService: {
         lines: ["உங்கள் பெற்றோருக்கு", "பராமரிப்பு —", "வீட்டிலேயே"],
+        // TA-REVIEW: en.ts lead dropped the named neighbourhoods (see meta above).
         lead: "செவிலியர் பராமரிப்பு, பிசியோதெரபி, ஆய்வக மாதிரி எடுப்பு — அடையாறு, பெசன்ட் நகர், திருவான்மியூர் பகுதிகளில் ஏற்பாடு செய்கிறோம். நேரத்தை நீங்கள் தேர்வு செய்யுங்கள். மற்றவற்றை நாங்கள் பார்த்துக்கொள்கிறோம்.",
       },
-      locationPill: "அடையாறு மற்றும் பெசன்ட் நகரில் தொடக்கம்",
+      // Direct translation supplied by CHANGES-2026-09-27.md (not a stale pair).
+      locationPill: "சென்னையிலும் சுற்றுப்புறங்களிலும் தொடக்கம்",
       heroBrief: "சென்னை வீட்டு வாசலில் செவிலியரும் முதியவரும். இயற்கை ஒளி.",
       heroTrust: ["ஒரு நபரால் சரிபார்ப்பு", "தமிழில் இயங்கும்", "ஒரே விலை, முன்பே உறுதி"],
       secondaryCta: "ஒருவரிடம் பேசுங்கள்",
@@ -204,6 +211,8 @@ export const ta: Dictionary = {
       eyebrow: "பொதுவான கேள்விகள்",
       heading: "குடும்பங்கள் முதலில் கேட்பவை",
       items: [
+        // TA-REVIEW: en.ts answer dropped the named neighbourhoods (see meta
+        // above) — this is CHANGES-2026-09-27.md's explicit Hold #3.
         { q: "எந்தப் பகுதிகளில் சேவை?", a: "அடையாறு மற்றும் பெசன்ட் நகரில் தொடங்குகிறோம். வெளியே இருந்தால் செயலி அதைச் சொல்லிவிடும்." },
         { q: "பணியாளர் தகுதியானவரா என எப்படித் தெரியும்?", a: "எங்கள் குழுவினர் பதிவையும் சான்றிதழையும், அடையாள அட்டையையும் பெயரையும் சரிபார்க்கிறார்கள்." },
         { q: "நானே செவிலியரைத் தேர்வு செய்யலாமா?", a: "இல்லை. நாங்கள் நியமிக்கிறோம் — அதனால்தான் 10 நிமிட உறுதியை அளிக்க முடிகிறது." },
@@ -215,6 +224,7 @@ export const ta: Dictionary = {
     joinTeaser: {
       eyebrow: "எங்களுடன் இணையுங்கள்",
       heading: "நீங்கள் வசிக்கும் பகுதிக்கு அருகில் வேலை",
+      // TA-REVIEW: en.ts body dropped the named neighbourhoods (see meta above).
       body: "அடையாறு, பெசன்ட் நகர், திருவான்மியூர் பகுதிகளில் உள்ள செவிலியர்கள், உதவியாளர்கள், பிசியோதெரபிஸ்ட்களுக்கு. இணைவது இலவசம், மூன்று ஆவணங்களுக்கு மேல் இல்லை.",
       zone: "சென்னை · பகுதி வாரியாக",
       cta: "வாட்ஸ்அப்பில் தொடர்பு கொள்ளுங்கள்",
@@ -284,6 +294,7 @@ export const ta: Dictionary = {
   techTrust: {
     eyebrow: "நம்பிக்கை",
     h1: "உங்கள் கதவைத் தட்டுபவரை எப்படிச் சரிபார்க்கிறோம்.",
+    // TA-REVIEW: en.ts intro reworded (CHANGES-2026-09-27.md).
     intro: "கைமுறை சரிபார்ப்பு மெதுவானது, செலவானது. அதுவே நோக்கம்.",
     trustBlocks: [
       {
@@ -455,6 +466,7 @@ export const ta: Dictionary = {
   },
   contact: {
     eyebrow: "தொடர்பு",
+    // TA-REVIEW: en.ts h1 added "as soon as possible" (CHANGES-2026-09-27.md).
     h1: "நீங்கள் யார் என்று சொல்லுங்கள் — நாங்கள் தொடர்பு கொள்கிறோம்.",
     lead: "சரியான நபர் பதிலளிக்க சில குறுகிய கேள்விகள்.",
     personaLegend: "யார் தொடர்பு கொள்கிறார்கள்?",
@@ -469,7 +481,8 @@ export const ta: Dictionary = {
       kindThree: ["செவிலியர்", "பிசியோதெரபி", "ஆய்வக மாதிரி", "இன்னும் தெரியவில்லை"],
       kindFour: ["மருத்துவர் ஆலோசனை", "செவிலியர்", "பிசியோதெரபி", "ஆய்வக மாதிரி", "இன்னும் தெரியவில்லை"],
       areaHeading: "எந்தப் பகுதி?",
-      area: ["அடையாறு", "பெசன்ட் நகர்", "சென்னையில் வேறு பகுதி", "சென்னைக்கு வெளியே"],
+      // Direct translation supplied by CHANGES-2026-09-27.md (not a stale pair).
+      areaPlaceholder: "பகுதி, சுற்றுவட்டாரம் அல்லது பின் கோடு",
       whenHeading: "எப்போது தேவை?",
       when: ["ஒரு வாரத்தில்", "இந்த மாதம்", "முன்கூட்டியே"],
     },
