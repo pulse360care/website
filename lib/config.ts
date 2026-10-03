@@ -42,3 +42,12 @@ export const foundersVisible = true;
  * hero and the CTA band link straight to the contact form.
  */
 export const primaryCtaPath = "/contact";
+
+/**
+ * CHANGES-2026-10-03 #2: the real "why we started" quote and its signature
+ * are written, but the owner must approve them before they go live — this
+ * is the only thing gating that, so the real copy sits in
+ * lib/i18n/en.ts/ta.ts (`home.why.bodyFinal`/`signatureFinal`) ready to
+ * flip on, rather than being dropped in as the only copy.
+ */
+export const whyStartedApproved = false;

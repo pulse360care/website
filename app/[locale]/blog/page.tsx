@@ -49,7 +49,7 @@ export default async function BlogIndexPage(props: PageProps<"/[locale]/blog">) 
                 {post.title}
               </div>
               <p style={{ margin: "var(--space-xs) 0 0", fontSize: "var(--step-body-en)", lineHeight: "var(--leading-body-en)", color: "var(--color-text-primary)" }}>
-                {post.body}
+                {post.excerpt}
               </p>
             </Link>
           ))}

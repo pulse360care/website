@@ -1,19 +1,36 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLocale, locales } from "@/lib/i18n/locales";
 import { getDictionary } from "@/lib/i18n";
 import { en } from "@/lib/i18n/en";
+import { ImageSlot } from "@/components/ImageSlot";
 
 export function generateStaticParams() {
   return locales.flatMap((locale) => en.blog.posts.map((post) => ({ locale, slug: post.slug })));
+}
+
+export async function generateMetadata(props: PageProps<"/[locale]/blog/[slug]">): Promise<Metadata> {
+  const { locale, slug } = await props.params;
+  if (!isLocale(locale)) return {};
+  const post = getDictionary(locale).blog.posts.find((p) => p.slug === slug);
+  if (!post) return {};
+  return {
+    title: post.title,
+    description: post.excerpt,
+    // CHANGES-2026-10-03 #3: clinician review required before publish —
+    // while `reviewed` is false, keep the article out of search entirely
+    // (matches the sitemap exclusion in app/sitemap.ts).
+    robots: post.reviewed ? undefined : { index: false, follow: false },
+  };
 }
 
 export default async function BlogArticlePage(props: PageProps<"/[locale]/blog/[slug]">) {
   const { locale, slug } = await props.params;
   if (!isLocale(locale)) notFound();
   const dict = getDictionary(locale);
-  const post = dict.blog.posts.find((p) => p.slug === slug);
-  if (!post) notFound();
-  const a = dict.blog.article;
+  const index = dict.blog.posts.findIndex((p) => p.slug === slug);
+  if (index === -1) notFound();
+  const post = dict.blog.posts[index];
   const isTamil = locale === "ta";
 
   return (
@@ -34,54 +51,20 @@ export default async function BlogArticlePage(props: PageProps<"/[locale]/blog/[
           >
             {post.title}
           </h1>
-          <p style={{ margin: "var(--space-md) 0 0", fontSize: "var(--step-lead-en)", lineHeight: isTamil ? "var(--leading-lead-ta)" : "var(--leading-lead-en)" }}>
-            {a.standfirst}
+          <p style={{ margin: "var(--space-md) 0 0", fontSize: "var(--step-lead-en)", lineHeight: isTamil ? "var(--leading-lead-ta)" : "var(--leading-lead-en)", color: "var(--color-text-secondary)" }}>
+            {post.excerpt}
           </p>
-          <div
-            style={{
-              margin: "var(--space-lg) 0",
-              minHeight: 200,
-              background: "var(--color-surface-sunken)",
-              border: "1px dashed var(--color-border-default)",
-              borderRadius: "var(--radius-md)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 13,
-              color: "var(--color-text-tertiary)",
-              textAlign: "center",
-              padding: "var(--space-sm)",
-            }}
-          >
-            {a.photoCaption}
+          <div style={{ margin: "var(--space-lg) 0" }}>
+            <ImageSlot ratio="3/2" label="PHOTO" brief={post.brief} minHeight={260} src={`/images/panels/panel-art-${index}.png`} />
           </div>
-          <p style={{ margin: "0 0 var(--space-md)", fontSize: "var(--step-lead-en)", lineHeight: isTamil ? "var(--leading-lead-ta)" : 1.6 }}>{a.body1}</p>
-          <h2 style={{ margin: "var(--space-lg) 0 var(--space-xs)", fontSize: "var(--step-h2-en)", lineHeight: "var(--leading-h2-en)", fontWeight: 700 }}>
-            {a.subhead}
-          </h2>
-          <p style={{ margin: "0 0 var(--space-md)", fontSize: "var(--step-lead-en)", lineHeight: isTamil ? "var(--leading-lead-ta)" : 1.6 }}>{a.body2}</p>
-          <ul style={{ margin: "0 0 var(--space-md)", paddingLeft: "1.2em", fontSize: "var(--step-lead-en)", lineHeight: isTamil ? "var(--leading-lead-ta)" : 1.6 }}>
-            {a.list.map((item, i) => (
-              <li key={i} style={{ marginBottom: "var(--space-2xs)" }}>
-                {item}
-              </li>
-            ))}
-          </ul>
-          <div
-            style={{
-              marginTop: "var(--space-xl)",
-              border: "1.5px solid var(--color-border-strong)",
-              borderRadius: "var(--radius-md)",
-              padding: "var(--space-md)",
-              background: "var(--color-surface-sunken)",
-            }}
-          >
-            <div style={{ fontSize: 13, fontWeight: 600, letterSpacing: isTamil ? undefined : ".04em", textTransform: isTamil ? "none" : "uppercase", marginBottom: "var(--space-2xs)" }}>
-              {a.notMedicalAdvice.label}
-            </div>
-            <p style={{ margin: 0, fontSize: "var(--step-body-en)", lineHeight: "var(--leading-body-en)" }}>{a.notMedicalAdvice.body}</p>
-          </div>
-          <div style={{ marginTop: "var(--space-lg)", fontSize: "var(--step-body-en)", lineHeight: "var(--leading-body-en)" }}>{a.footerNote}</div>
+          {post.body.map((paragraph, i) => (
+            <p key={i} style={{ margin: "0 0 var(--space-md)", fontSize: "var(--step-lead-en)", lineHeight: isTamil ? "var(--leading-lead-ta)" : 1.6, color: "var(--color-text-primary)" }}>
+              {paragraph}
+            </p>
+          ))}
+          <p style={{ margin: "var(--space-lg) 0 0", fontSize: 13, lineHeight: 1.5, color: "var(--color-text-secondary)", padding: "var(--space-sm) var(--space-md)", borderLeft: "3px solid var(--color-border-brand)", background: "var(--color-surface-sunken)" }}>
+            {dict.blog.disclaimer}
+          </p>
         </div>
       </div>
     </div>

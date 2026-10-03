@@ -14,7 +14,9 @@ const staticPaths = [
   "/for-hospitals",
   "/contact",
   ...(doctorLive ? ["/doctor-consultation"] : []),
-  ...en.blog.posts.map((post) => `/blog/${post.slug}`),
+  // CHANGES-2026-10-03 #3: an article stays out of the sitemap until a
+  // clinician has reviewed it (matches the noindex in blog/[slug]/page.tsx).
+  ...en.blog.posts.filter((post) => post.reviewed).map((post) => `/blog/${post.slug}`),
 ];
 
 /**

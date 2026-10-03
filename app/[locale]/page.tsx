@@ -1,6 +1,6 @@
 import { isLocale } from "@/lib/i18n/locales";
 import { getDictionary } from "@/lib/i18n";
-import { doctorLive, foundersVisible } from "@/lib/config";
+import { doctorLive, foundersVisible, whyStartedApproved } from "@/lib/config";
 import { contactDetails } from "@/lib/contact";
 import { Hero } from "@/components/Hero";
 import { WhatWeCheck } from "@/components/WhatWeCheck";
@@ -77,7 +77,11 @@ export default async function HomePage(props: PageProps<"/[locale]">) {
       ) : null}
 
       <Reveal>
-        <WhyWeStarted eyebrow={home.why.eyebrow} body={home.why.body} signature={home.why.signature} />
+        <WhyWeStarted
+          eyebrow={home.why.eyebrow}
+          body={whyStartedApproved ? home.why.bodyFinal : home.why.body}
+          signature={whyStartedApproved ? home.why.signatureFinal : home.why.signature}
+        />
       </Reveal>
 
       <Reveal>

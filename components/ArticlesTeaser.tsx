@@ -10,7 +10,7 @@ export function ArticlesTeaser({
   locale: string;
   eyebrow: string;
   heading: string;
-  posts: { slug: string; title: string; body: string; date: string; readTime: string; brief: string }[];
+  posts: { slug: string; title: string; excerpt: string; date: string; readTime: string; brief: string }[];
 }) {
   return (
     <div className="page-section" style={{ background: "var(--color-surface-sunken)", borderTop: "1px solid var(--color-border-subtle)", borderBottom: "1px solid var(--color-border-subtle)" }}>
@@ -36,12 +36,9 @@ export function ArticlesTeaser({
                 color: "var(--color-text-primary)",
               }}
             >
-              {/* Only 3 art-* panels ship in the design bundle; this site's
-                  real post count (4) exceeds it, so panels cycle rather
-                  than running out. */}
-              <ImageSlot ratio="3/2" label="PHOTO" brief={post.brief} src={`/images/panels/panel-art-${i % 3}.png`} />
+              <ImageSlot ratio="3/2" label="PHOTO" brief={post.brief} src={`/images/panels/panel-art-${i}.png`} />
               <div style={{ fontSize: "var(--step-h3-en)", fontWeight: 600, lineHeight: "var(--leading-h3-en)", marginTop: "var(--space-xs)" }}>{post.title}</div>
-              <p style={{ margin: 0, fontSize: "var(--step-body-en)", lineHeight: "var(--leading-body-en)", color: "var(--color-text-secondary)" }}>{post.body}</p>
+              <p style={{ margin: 0, fontSize: "var(--step-body-en)", lineHeight: "var(--leading-body-en)", color: "var(--color-text-secondary)" }}>{post.excerpt}</p>
               <span style={{ fontSize: 13, color: "var(--color-text-tertiary)", marginTop: "auto", paddingTop: "var(--space-xs)" }}>
                 {post.date} · {post.readTime}
               </span>

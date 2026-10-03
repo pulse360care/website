@@ -23,7 +23,9 @@ export const en = {
     blurb: "Home care visits in Chennai and its surroundings.",
     pagesHeading: "Pages",
     elsewhereHeading: "Find us",
-    social: ["WhatsApp", "Instagram", "YouTube"],
+    // CHANGES-2026-10-03 #4: Instagram/YouTube removed until those
+    // accounts exist (previously kept as hidden placeholders).
+    social: ["WhatsApp"],
     contactHeading: "Contact",
     localityLink: "Chennai and surroundings",
     legal: "© Pulse360Care. Placeholder legal line",
@@ -199,6 +201,11 @@ export const en = {
       eyebrow: "Why we started",
       body: "Placeholder. A short statement from the founder about the family situation that started this — in their own words, not marketing copy. This section stands where a testimonials block would normally go. We have no patients yet, so we are not inventing any.",
       signature: "Sidhu, Chennai",
+      // CHANGES-2026-10-03 #2 — real copy, held behind whyStartedApproved
+      // (lib/config.ts) until the owner signs off. Verbatim from v4.
+      bodyFinal:
+        "When someone in our own family came home from hospital, the hardest part was not the illness. It was the phone calls: finding a nurse, wondering whether she was qualified, and hoping she would turn up. We started Pulse so that other families in Chennai can get checked, qualified care at home without depending on luck or a friend of a friend.",
+      signatureFinal: "Sidhu and Prem, founders, Chennai",
     },
     faq: {
       eyebrow: "Common questions",
@@ -337,58 +344,58 @@ export const en = {
     eyebrow: "Articles",
     h1: "Plain answers to the questions families actually ask.",
     intro: "Written for someone tired and worried, not for a search engine.",
+    // CHANGES-2026-10-03 #3 — replaces the previous 4 placeholder posts
+    // with v4's 3 real articles, copied verbatim. `reviewed` gates
+    // noindex + sitemap exclusion (app/sitemap.ts, blog/[slug]/page.tsx)
+    // until a clinician signs off.
     posts: [
       {
-        slug: "questions-before-you-hire-a-home-attender",
-        date: "Placeholder date",
-        readTime: "6 min read",
-        title: "Questions worth asking before you hire a home attender",
-        body: "A short list you can read out over the phone, and what a good answer sounds like.",
-        brief: "Close crop of a nursing council registration certificate.",
-      },
-      {
-        slug: "the-first-week-after-a-discharge",
-        date: "Placeholder date",
-        readTime: "4 min read",
-        title: "What actually happens in the first week after a discharge",
-        body: "Written from what families told us, not from a hospital pamphlet.",
-        brief: "Hospital discharge paperwork on a bed, hands holding it.",
-      },
-      {
-        slug: "what-the-price-should-include",
-        date: "Placeholder date",
-        readTime: "5 min read",
-        title: "Paying for home care: what the price should include",
-        body: "Hourly, daily, night duty — and the costs that usually appear later.",
-        brief: "Receipt and a calculator on a kitchen table, soft daylight.",
-      },
-      {
-        slug: "making-a-room-safer",
-        date: "Placeholder date",
+        slug: "before-a-parent-comes-home-from-hospital",
+        date: "October 2026",
         readTime: "3 min read",
-        title: "Making a room safer before someone comes home",
-        body: "Small changes that take an afternoon and no special equipment.",
+        title: "What to arrange before a parent comes home from hospital",
+        excerpt: "The discharge summary tells you what happened. It rarely tells you what to do on Tuesday.",
+        body: [
+          "Before the day of discharge, ask the ward for three things in writing: the medicines and their timings, what the person can and cannot do yet, and the date of the next review.",
+          "Then look at the house with fresh eyes. A clear path from the bed to the bathroom, a chair with arms, and a light that can be reached at night matter more than any equipment.",
+          "Decide who will be at home in the first week, and when. If the doctor has asked for dressings, injections, physiotherapy or blood tests, arrange them before you leave the hospital, not after.",
+          "Keep the discharge summary and the medicine list in one place where anyone visiting can find them. If something changes or worries you, call the treating doctor. In an emergency, call 108.",
+        ],
+        brief: "Hospital discharge paperwork on a bed, hands holding it.",
+        reviewed: false,
+      },
+      {
+        slug: "is-your-home-nurse-qualified",
+        date: "October 2026",
+        readTime: "2 min read",
+        title: "How to tell whether a home nurse is actually qualified",
+        excerpt: "There is a registration number, and there is a way to check it.",
+        body: [
+          "Every qualified nurse in Tamil Nadu is registered with the Tamil Nadu Nurses and Midwives Council and has a registration number. Ask for it, and for the certificate it is printed on.",
+          "Check that the name on the certificate matches the name on a government ID, and that the photograph matches the person in front of you.",
+          "Ask what they were trained in and what they have done recently. A good nurse will tell you plainly what is within their training and what needs a doctor.",
+          "Every professional Pulse sends has had these checks done by someone on our team, before their first visit and again every year.",
+        ],
+        brief: "Close crop of a nursing council registration certificate.",
+        reviewed: false,
+      },
+      {
+        slug: "physiotherapy-at-home-after-a-fracture",
+        date: "October 2026",
+        readTime: "2 min read",
+        title: "Physiotherapy at home after a fracture",
+        excerpt: "Recovery is measured in weeks of repetition, not a single appointment.",
+        body: [
+          "After a fracture, the treating doctor decides when movement can start and how much weight the bone can take. Physiotherapy follows that plan; it does not replace it.",
+          "Most of the work is short, regular sessions and simple exercises repeated between them. Doing them at home removes the hardest part for many families: getting someone in pain to a clinic and back.",
+          "Ask the physiotherapist to write down the exercises and how often to do them, so whoever is at home can help on the days in between.",
+          "Stop and call the doctor if there is new swelling, numbness, a change in colour, or pain that is getting worse rather than better.",
+        ],
         brief: "Walking frame beside a bed, morning light, nobody in frame.",
+        reviewed: false,
       },
     ],
-    article: {
-      standfirst:
-        "Standfirst paragraph, one or two sentences, set a step larger than the body so the article has an opening register without needing a new type size.",
-      photoCaption: "Optional photograph · caption sits below, never on top",
-      body1: "Body paragraph at 17px rather than 15px, because an article is read for minutes rather than scanned for seconds. Measure is capped by the frame width; on desktop it is capped at about 68 characters.",
-      subhead: "A subhead, sized from the same scale",
-      body2: "Another body paragraph. Placeholder text of realistic length, so that line count and vertical rhythm can be judged rather than guessed at.",
-      list: [
-        "A list item of the kind this article would actually carry.",
-        "A second item, slightly longer, wrapping to two lines on a phone.",
-        "A third.",
-      ],
-      notMedicalAdvice: {
-        label: "Not medical advice",
-        body: "This article is general information about arranging care. It is not medical advice and it is not a substitute for your doctor. For anything about a diagnosis, a medicine or a symptom, speak to the treating doctor.",
-      },
-      footerNote: "Every article ends with this note, in the same place, in the same box. It is part of the template, not something an author remembers to add.",
-    },
+    disclaimer: "General information, not medical advice.",
   },
   professionals: {
     eyebrow: "For professionals",
