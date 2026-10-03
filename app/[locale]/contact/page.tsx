@@ -20,10 +20,12 @@ export default async function ContactPage(props: PageProps<"/[locale]/contact">)
   return (
     <div>
       <div className="page-section">
-        <div className="container" style={{ display: "flex", flexDirection: "column", gap: "var(--space-md)", maxWidth: "70ch" }}>
-          <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{t.eyebrow}</span>
-          <h1 style={{ margin: 0, fontSize: "var(--step-display-en)", lineHeight: "var(--leading-display-en)", fontWeight: 700, letterSpacing: "-0.01em" }}>{t.h1}</h1>
-          <p style={{ margin: 0, fontSize: "var(--step-lead-en)", lineHeight: "var(--leading-lead-en)", color: "var(--color-text-secondary)" }}>{t.lead}</p>
+        <div className="container">
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-md)", maxWidth: "70ch" }}>
+            <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{t.eyebrow}</span>
+            <h1 style={{ margin: 0, fontSize: "var(--step-display-en)", lineHeight: "var(--leading-display-en)", fontWeight: 700, letterSpacing: "-0.01em" }}>{t.h1}</h1>
+            <p style={{ margin: 0, fontSize: "var(--step-lead-en)", lineHeight: "var(--leading-lead-en)", color: "var(--color-text-secondary)" }}>{t.lead}</p>
+          </div>
         </div>
       </div>
 
@@ -34,18 +36,20 @@ export default async function ContactPage(props: PageProps<"/[locale]/contact">)
       </div>
 
       <div className="page-section" style={{ borderTop: "1px solid var(--color-border-subtle)" }}>
-        <div className="container" style={{ display: "flex", flexDirection: "column", gap: "var(--space-md)", maxWidth: "70ch" }}>
-          <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{t.directHeading}</span>
-          {contactRows.map((row) => (
-            <a key={row.label} href={row.href} style={{ display: "flex", flexDirection: "column", gap: 2, minHeight: 48, justifyContent: "center", textDecoration: "none" }}>
-              <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{row.label}</span>
-              <span style={{ fontSize: "var(--step-lead-en)", lineHeight: 1.5, color: "var(--color-text-brand)", fontWeight: 600 }}>{row.value}</span>
-            </a>
-          ))}
-          <div style={{ fontSize: 13, lineHeight: 1.5, color: "var(--color-text-secondary)" }}>{t.hoursNote}</div>
-          <p style={{ margin: 0, fontSize: 13, lineHeight: 1.5, color: "var(--color-text-secondary)", padding: "var(--space-sm) var(--space-md)", borderLeft: "3px solid var(--color-border-brand)", background: "var(--color-surface-sunken)" }}>
-            {dict.home.contactTeaser.emergencyNote}
-          </p>
+        <div className="container">
+          <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-md)", maxWidth: "70ch" }}>
+            <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{t.directHeading}</span>
+            {contactRows.map((row) => (
+              <a key={row.label} href={row.href} style={{ display: "flex", flexDirection: "column", gap: 2, minHeight: 48, justifyContent: "center", textDecoration: "none" }}>
+                <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: ".06em", textTransform: "uppercase", color: "var(--color-text-tertiary)" }}>{row.label}</span>
+                <span style={{ fontSize: "var(--step-lead-en)", lineHeight: 1.5, color: "var(--color-text-brand)", fontWeight: 600 }}>{row.value}</span>
+              </a>
+            ))}
+            <div style={{ fontSize: 13, lineHeight: 1.5, color: "var(--color-text-secondary)" }}>{t.hoursNote}</div>
+            <p style={{ margin: 0, fontSize: 13, lineHeight: 1.5, color: "var(--color-text-secondary)", padding: "var(--space-sm) var(--space-md)", borderLeft: "3px solid var(--color-border-brand)", background: "var(--color-surface-sunken)" }}>
+              {dict.home.contactTeaser.emergencyNote}
+            </p>
+          </div>
         </div>
       </div>
     </div>
