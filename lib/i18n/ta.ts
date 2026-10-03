@@ -236,9 +236,13 @@ export const ta: Dictionary = {
     joinTeaser: {
       eyebrow: "எங்களுடன் இணையுங்கள்",
       heading: "நீங்கள் வசிக்கும் பகுதிக்கு அருகில் வேலை",
-      // TA-REVIEW: en.ts body dropped the named neighbourhoods (see meta above)
-      // and renamed "attenders" to "sample collectors" (CHANGES-2026-09-30 #12).
-      body: "அடையாறு, பெசன்ட் நகர், திருவான்மியூர் பகுதிகளில் உள்ள செவிலியர்கள், உதவியாளர்கள், பிசியோதெரபிஸ்ட்களுக்கு. இணைவது இலவசம், மூன்று ஆவணங்களுக்கு மேல் இல்லை.",
+      // TA-REVIEW: en.ts bodyThree dropped the named neighbourhoods (see meta
+      // above) and renamed "attenders" to "sample collectors"
+      // (CHANGES-2026-09-30 #12). bodyFour is new (CHANGES-2026-09-30 #14,
+      // doctorLive) — direct translation, not a stale pair, but carries the
+      // same neighbourhood-name staleness as bodyThree.
+      bodyThree: "அடையாறு, பெசன்ட் நகர், திருவான்மியூர் பகுதிகளில் உள்ள செவிலியர்கள், உதவியாளர்கள், பிசியோதெரபிஸ்ட்களுக்கு. இணைவது இலவசம், மூன்று ஆவணங்களுக்கு மேல் இல்லை.",
+      bodyFour: "அடையாறு, பெசன்ட் நகர், திருவான்மியூர் பகுதிகளில் உள்ள மருத்துவர்கள், செவிலியர்கள், உதவியாளர்கள், பிசியோதெரபிஸ்ட்களுக்கு. இணைவது இலவசம், மூன்று ஆவணங்களுக்கு மேல் இல்லை.",
       zone: "சென்னை · பகுதி வாரியாக",
       cta: "வாட்ஸ்அப்பில் தொடர்பு கொள்ளுங்கள்",
     },

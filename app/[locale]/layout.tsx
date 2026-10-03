@@ -3,6 +3,7 @@ import { Hind, Hind_Madurai } from "next/font/google";
 import { notFound } from "next/navigation";
 import { isLocale, locales } from "@/lib/i18n/locales";
 import { getDictionary } from "@/lib/i18n";
+import { tamilLive } from "@/lib/config";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import "../globals.css";
@@ -29,7 +30,12 @@ export async function generateMetadata(props: LayoutProps<"/[locale]">): Promise
   const { locale } = await props.params;
   if (!isLocale(locale)) return {};
   const dict = getDictionary(locale);
-  return { title: dict.meta.title, description: dict.meta.description };
+  const hideFromSearch = locale === "ta" && !tamilLive;
+  return {
+    title: dict.meta.title,
+    description: dict.meta.description,
+    robots: hideFromSearch ? { index: false, follow: false } : undefined,
+  };
 }
 
 export default async function LocaleLayout(props: LayoutProps<"/[locale]">) {

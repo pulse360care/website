@@ -92,7 +92,7 @@ export default async function HomePage(props: PageProps<"/[locale]">) {
         <JoinUsTeaser
           eyebrow={home.joinTeaser.eyebrow}
           heading={home.joinTeaser.heading}
-          body={home.joinTeaser.body}
+          body={doctorLive ? home.joinTeaser.bodyFour : home.joinTeaser.bodyThree}
           zone={home.joinTeaser.zone}
           roles={joinRoles}
           cta={home.joinTeaser.cta}

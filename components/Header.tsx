@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import type { Locale } from "@/lib/i18n/locales";
 import { localeLabels, otherLocale } from "@/lib/i18n/locales";
 import type { Dictionary } from "@/lib/i18n/types";
+import { tamilLive } from "@/lib/config";
 
 function navItems(locale: Locale, dict: Dictionary) {
   const base = `/${locale}`;
@@ -206,7 +207,7 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
         </nav>
 
         <div style={{ gridColumn: "3", minWidth: 0, display: "flex", alignItems: "center", gap: "var(--space-xs)", justifyContent: "flex-end", padding: "var(--space-xs) 0" }}>
-          <LanguageToggle locale={locale} />
+          {tamilLive ? <LanguageToggle locale={locale} /> : null}
           <button
             type="button"
             className="mobile-nav-toggle"

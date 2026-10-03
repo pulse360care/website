@@ -230,7 +230,8 @@ export const en = {
     joinTeaser: {
       eyebrow: "Join us",
       heading: "Work near where you live",
-      body: "For nurses, physiotherapists and sample collectors in Chennai and its surroundings. Joining is free, and there are never more than three documents.",
+      bodyThree: "For nurses, physiotherapists and sample collectors in Chennai and its surroundings. Joining is free, and there are never more than three documents.",
+      bodyFour: "For doctors, nurses, physiotherapists and sample collectors in Chennai and its surroundings. Joining is free, and there are never more than three documents.",
       zone: "Chennai · zone based",
       cta: "Message us on WhatsApp",
     },
