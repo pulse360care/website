@@ -62,9 +62,10 @@ more detailed than the top-level `docs/design/README.md`).
 Carried over from the design handoff's own "Open Decisions" list
 (`docs/design/project/design_handoff_pulse_website/README.md`). Resolved
 so far: **primary CTA → single link to `/contact`** (see `lib/config.ts`
-`primaryCtaPath`), **contact form backend → stub API route only**
-(`/api/enquiry`, logs and validates, nothing persisted — real backend
-wiring is a later slice), **hospitals page reframed** as a referral into
+`primaryCtaPath`), **contact form backend → real POST** (ContactForm
+submits directly to `NEXT_PUBLIC_ENQUIRY_URL`, a separate `pulse-form-backend`
+Vercel function — see that repo's README for the Resend/domain setup it
+needs), **hospitals page reframed** as a referral into
 the four existing service lines rather than a discharge/attender line
 (CHANGES-2026-09-30 #11 — no more service-line mismatch), **home lab
 collection role card** resolved as "Sample collector" (CHANGES-2026-09-30
@@ -95,7 +96,8 @@ Still open:
 - `components/` — one component per design-system pattern (`Hero`,
   `ServiceRow`, `StepStrip` = horizontal "how it works" strip,
   `ComparisonTable`, `ContactForm`, `Header`/`Footer`, etc).
-- `app/[locale]/` — one folder per page; `app/api/{enquiry,waitlist}` —
-  stub route handlers.
+- `app/[locale]/` — one folder per page. No API routes in this repo —
+  the contact form posts straight to the external `pulse-form-backend`
+  function at `NEXT_PUBLIC_ENQUIRY_URL`.
 - `docs/design/` — the original Claude Design handoff bundle (HTML
   mockups, chat transcripts, README). Reference only; not shipped.

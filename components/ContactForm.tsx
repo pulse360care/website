@@ -3,8 +3,19 @@
 import { useId, useState } from "react";
 import type { Locale } from "@/lib/i18n/locales";
 import type { Dictionary } from "@/lib/i18n/types";
+import { en } from "@/lib/i18n/en";
+import { contactDetails } from "@/lib/contact";
 
 type PersonaId = "family" | "pro" | "hospital" | "support";
+
+/** Chip answers are stored as whatever the active locale displays, but the
+ * inbox needs one consistent language — look up the same-position English
+ * string so the email reads the same regardless of site language. */
+function toEnglish(value: string | null, localOptions: readonly string[], enOptions: readonly string[]): string {
+  if (!value) return "";
+  const i = localOptions.indexOf(value);
+  return i === -1 ? value : (enOptions[i] ?? value);
+}
 
 function ChipGroup({
   options,
@@ -60,6 +71,7 @@ export function ContactForm({ locale, dict, doctorLive }: { locale: Locale; dict
   const [name, setName] = useState("");
   const [mobile, setMobile] = useState("");
   const [note, setNote] = useState("");
+  const [company, setCompany] = useState(""); // honeypot — real users never fill this in
   const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<{ name?: boolean; mobile?: boolean }>({});
@@ -67,9 +79,12 @@ export function ContactForm({ locale, dict, doctorLive }: { locale: Locale; dict
   const nameId = useId();
   const mobileId = useId();
   const noteId = useId();
+  const companyId = useId();
 
   const kindOptions = doctorLive ? t.family.kindFour : t.family.kindThree;
+  const enKindOptions = doctorLive ? en.contact.family.kindFour : en.contact.family.kindThree;
   const roleOptions = doctorLive ? t.professional.rolesFour : t.professional.rolesThree;
+  const enRoleOptions = doctorLive ? en.contact.professional.rolesFour : en.contact.professional.rolesThree;
 
   function pickPersona(id: PersonaId) {
     setPersona(id);
@@ -98,6 +113,7 @@ export function ContactForm({ locale, dict, doctorLive }: { locale: Locale; dict
     setName("");
     setMobile("");
     setNote("");
+    setCompany("");
     setSubmitted(false);
     setStatus("idle");
   }
@@ -111,25 +127,44 @@ export function ContactForm({ locale, dict, doctorLive }: { locale: Locale; dict
     setErrors(nextErrors);
     if (nextErrors.name || nextErrors.mobile) return;
 
+    const enPersonaLabel = persona ? (en.contact.personas.find((p) => p.id === persona)?.label ?? "") : "";
+
+    const answers: { label: string; value: string }[] = [];
+    if (persona === "family") {
+      answers.push(
+        { label: en.contact.family.kindHeading, value: toEnglish(kind, kindOptions, enKindOptions) },
+        { label: en.contact.family.areaHeading, value: area },
+        { label: en.contact.family.whenHeading, value: toEnglish(when, t.family.when, en.contact.family.when) },
+      );
+    } else if (persona === "pro") {
+      answers.push(
+        { label: en.contact.professional.roleHeading, value: toEnglish(role, roleOptions, enRoleOptions) },
+        { label: en.contact.professional.registrationHeading, value: toEnglish(registration, t.professional.registration, en.contact.professional.registration) },
+      );
+    } else if (persona === "hospital") {
+      answers.push(
+        { label: en.contact.hospital.orgHeading, value: toEnglish(org, t.hospital.org, en.contact.hospital.org) },
+        { label: en.contact.hospital.topicHeading, value: toEnglish(hospitalTopic, t.hospital.topic, en.contact.hospital.topic) },
+      );
+    } else if (persona === "support") {
+      answers.push(
+        { label: en.contact.support.topicHeading, value: toEnglish(supportTopic, t.support.topic, en.contact.support.topic) },
+        { label: en.contact.support.urgencyHeading, value: toEnglish(urgency, t.support.urgency, en.contact.support.urgency) },
+      );
+    }
+
     setStatus("submitting");
     try {
-      const res = await fetch("/api/enquiry", {
+      const res = await fetch(process.env.NEXT_PUBLIC_ENQUIRY_URL ?? "", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          persona,
-          kind,
-          area,
-          when,
-          role,
-          registration,
-          org,
-          hospitalTopic,
-          supportTopic,
-          urgency,
+          persona: enPersonaLabel,
+          answers: answers.filter((a) => a.value),
           name,
-          mobile,
-          note,
+          tel: mobile,
+          more: note,
+          company,
         }),
       });
       if (res.ok) {
@@ -160,7 +195,6 @@ export function ContactForm({ locale, dict, doctorLive }: { locale: Locale; dict
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-md)", alignItems: "flex-start", maxWidth: "70ch", padding: "var(--space-lg) var(--space-md)", border: "1px solid var(--color-border-brand)", borderRadius: "var(--radius-md)", background: "var(--color-surface-base)" }}>
         <h2 style={{ margin: 0, fontSize: "var(--step-h2-en)", lineHeight: "var(--leading-h2-en)", fontWeight: 700 }}>{t.sent.title}</h2>
         <p style={{ margin: 0, fontSize: "var(--step-lead-en)", lineHeight: isTamil ? "var(--leading-lead-ta)" : "var(--leading-lead-en)", color: "var(--color-text-secondary)" }}>{t.sent.body}</p>
-        <p style={{ margin: 0, fontSize: 13, lineHeight: 1.5, color: "var(--color-text-secondary)" }}>{t.sent.note}</p>
         {summaryParts.length ? (
           <p style={{ margin: 0, fontSize: 13, lineHeight: 1.6, color: "var(--color-text-secondary)" }}>{summaryParts.join(" · ")}</p>
         ) : null}
@@ -322,16 +356,24 @@ export function ContactForm({ locale, dict, doctorLive }: { locale: Locale; dict
             </p>
           </Fieldset>
 
+          <div style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }} aria-hidden="true">
+            <label htmlFor={companyId}>Company</label>
+            <input id={companyId} name="company" tabIndex={-1} autoComplete="off" value={company} onChange={(e) => setCompany(e.target.value)} />
+          </div>
+
           <button
             type="submit"
             disabled={status === "submitting"}
             style={{ minHeight: 56, minWidth: 220, alignSelf: "flex-start", display: "inline-flex", alignItems: "center", justifyContent: "center", padding: "var(--space-sm) var(--space-lg)", border: "none", borderRadius: "var(--radius-md)", background: "var(--color-action-primary)", color: "var(--color-action-primary-text)", fontSize: 17, fontWeight: 600, cursor: "pointer" }}
           >
-            {t.sendLabel}
+            {status === "submitting" ? t.sendingLabel : t.sendLabel}
           </button>
           {status === "error" ? (
             <div role="alert" style={{ fontSize: 13, color: "var(--color-error-text)" }}>
-              {t.errors.required}
+              {t.errors.sendFailed}{" "}
+              <a href={contactDetails.whatsappHref} style={{ color: "inherit", textDecoration: "underline" }}>
+                {t.errors.sendFailedWhatsapp}
+              </a>
             </div>
           ) : null}
           <div style={{ fontSize: 13, lineHeight: 1.5, color: "var(--color-text-secondary)" }}>{t.submitHelper}</div>

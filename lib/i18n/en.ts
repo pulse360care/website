@@ -524,6 +524,7 @@ export const en = {
     noteOptional: "optional",
     noMedical: "Please do not write medical details, test results, or anything about the patient's condition here.",
     sendLabel: "Send",
+    sendingLabel: "Sending…",
     submitHelper: "We use your number to call you back about this enquiry. Nothing else.",
     startAgain: "Start again",
     directHeading: "Or reach us directly",
@@ -533,12 +534,13 @@ export const en = {
     hoursNote: "Hours placeholder.",
     sent: {
       title: "Thank you — we have your details.",
-      body: "Someone will reply on the number you gave, in Tamil or English, between 9am and 8pm.",
-      note: "Stub only — your enquiry is validated but not yet stored anywhere.",
+      body: "We've received this and will reply on the number you gave.",
     },
     errors: {
       required: "This field is required.",
       mobile: "Enter a 10-digit mobile number.",
+      sendFailed: "That didn't go through.",
+      sendFailedWhatsapp: "Message us on WhatsApp instead.",
     },
   },
 };

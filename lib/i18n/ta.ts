@@ -536,6 +536,8 @@ export const ta: Dictionary = {
     noteOptional: "விருப்பம்",
     noMedical: "மருத்துவ விவரங்கள், பரிசோதனை முடிவுகள், நோயாளியின் உடல்நிலை பற்றி இங்கு எழுத வேண்டாம்.",
     sendLabel: "அனுப்பு",
+    // New state, no stale pair to flag — direct translation.
+    sendingLabel: "அனுப்புகிறது…",
     submitHelper: "இந்த விசாரணை குறித்து அழைக்க மட்டும் உங்கள் எண்ணைப் பயன்படுத்துவோம். வேறு எதுவும் இல்லை.",
     startAgain: "மீண்டும் தொடங்கு",
     directHeading: "நேரடியாக எங்களை அணுகவும்",
@@ -545,12 +547,17 @@ export const ta: Dictionary = {
     hoursNote: "நேர விவரம் — நிரப்பப்படும்.",
     sent: {
       title: "நன்றி — உங்கள் விவரங்கள் கிடைத்தன.",
+      // TA-REVIEW: en.ts body dropped the specific 9am-8pm promise (it's now
+      // the real send-confirmation copy, CHANGES-2026-09-27.md's enquiry
+      // form spec). This Tamil pair is stale until reviewed.
       body: "நீங்கள் அளித்த எண்ணுக்கு காலை 9 முதல் இரவு 8 வரை தமிழிலோ ஆங்கிலத்திலோ பதில் வரும்.",
-      note: "முன்மாதிரி மட்டும் — உங்கள் விசாரணை சரிபார்க்கப்பட்டது, ஆனால் இன்னும் எங்கும் சேமிக்கப்படவில்லை.",
     },
     errors: {
       required: "இந்தத் தகவல் தேவை.",
       mobile: "10 இலக்க கைபேசி எண்ணை உள்ளிடவும்.",
+      // New state, no stale pair to flag — direct translation.
+      sendFailed: "அது அனுப்பப்படவில்லை.",
+      sendFailedWhatsapp: "வாட்ஸ்அப்பில் எங்களைத் தொடர்பு கொள்ளுங்கள்.",
     },
   },
 };
