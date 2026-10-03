@@ -50,10 +50,6 @@ export default async function ProfessionalsPage(props: PageProps<"/[locale]/for-
             ))}
           </div>
 
-          <p style={{ margin: 0, maxWidth: "70ch", fontSize: 13, lineHeight: 1.5, color: "var(--color-text-secondary)", padding: "var(--space-sm) var(--space-md)", borderLeft: "3px solid var(--color-border-brand)", background: "var(--color-surface-base)" }}>
-            {t.noLabNote}
-          </p>
-
           <a
             href={contactDetails.whatsappHref}
             style={{

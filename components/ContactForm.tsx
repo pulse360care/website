@@ -69,10 +69,6 @@ export function ContactForm({ locale, dict, doctorLive }: { locale: Locale; dict
   const noteId = useId();
 
   const kindOptions = doctorLive ? t.family.kindFour : t.family.kindThree;
-  // The role list here deliberately stays Nurse / Attender / Physiotherapist(+Doctor)
-  // rather than v4's own "Sample collector" — see for-professionals/page.tsx: v4's own
-  // roles array and its prosNoLab copy contradict each other on this, so this build
-  // never introduces Sample Collector anywhere.
   const roleOptions = doctorLive ? t.professional.rolesFour : t.professional.rolesThree;
 
   function pickPersona(id: PersonaId) {

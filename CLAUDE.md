@@ -61,30 +61,28 @@ more detailed than the top-level `docs/design/README.md`).
 
 Carried over from the design handoff's own "Open Decisions" list
 (`docs/design/project/design_handoff_pulse_website/README.md`). Resolved
-so far: **primary CTA → waitlist signup** (see `lib/config.ts`
-`ctaMode`, `components/WaitlistForm.tsx`, `/api/waitlist` stub), **contact
-form backend → stub API route only** (`/api/enquiry`, logs and validates,
-nothing persisted). Still open:
+so far: **primary CTA → single link to `/contact`** (see `lib/config.ts`
+`primaryCtaPath`), **contact form backend → stub API route only**
+(`/api/enquiry`, logs and validates, nothing persisted — real backend
+wiring is a later slice), **hospitals page reframed** as a referral into
+the four existing service lines rather than a discharge/attender line
+(CHANGES-2026-09-30 #11 — no more service-line mismatch), **home lab
+collection role card** resolved as "Sample collector" (CHANGES-2026-09-30
+#12 — the `professionals.roles` card is real, not a placeholder note).
+Still open:
 
-1. **Hospitals page / service-line mismatch.** `app/[locale]/for-hospitals/page.tsx`
-   sells discharge referrals, but discharge/attender support isn't one of
-   the four agreed Phase-1 service lines. Built as-is with the conflict
-   documented in a comment at the top of that file, per explicit
-   instruction — do not silently rewrite one side to match the other.
-2. **Home lab collection has no professional role card** — Pulse staff vs.
-   partner lab is undecided (`for-professionals/page.tsx` renders a
-   "no card for lab collection" note instead of inventing one).
-3. **Approval time** for professional applications is withheld
-   (`professionals.approvalPlaceholder` in the dictionary) — no figure
-   exists yet, and one figure won't hold across roles once doctors launch.
-4. **Display type step**: the largest type token is 32px (app-sized); a
+1. **Approval time** for professional applications is withheld
+   (`professionals.approvalNoteThree`/`approvalNoteFour` in the
+   dictionary) — no figure exists yet, and one figure won't hold across
+   roles once doctors launch.
+2. **Display type step**: the largest type token is 32px (app-sized); a
    marketing display step for the desktop hero was never introduced.
-5. **`--color-text-tertiary` contrast** (~4.8:1, under the 7:1 body floor)
+3. **`--color-text-tertiary` contrast** (~4.8:1, under the 7:1 body floor)
    — placeholder-only, not raised.
-6. **Tamil native-speaker review** — nothing in `lib/i18n/ta.ts` has been
+4. **Tamil native-speaker review** — nothing in `lib/i18n/ta.ts` has been
    reviewed by a Tamil speaker; treat every string as a length/layout
    placeholder.
-7. Founders section (`foundersVisible` in `lib/config.ts`) ships **off**
+5. Founders section (`foundersVisible` in `lib/config.ts`) ships **off**
    — no real photos/names supplied. Flip once they exist; never fill with
    placeholder headshots.
 

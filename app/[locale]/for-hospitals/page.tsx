@@ -3,20 +3,6 @@ import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/i18n/locales";
 import { getDictionary } from "@/lib/i18n";
 
-/**
- * CONFLICT — flagged, not resolved (per docs/design README, "Open
- * Decisions" #2, and the user's explicit instruction to build this page
- * as-is rather than guess a resolution):
- *
- * This page sells after-hospital discharge referrals. The four agreed
- * Phase-1 service lines (doctor consultation, home nursing, home
- * physiotherapy, home lab collection — see lib/config.ts `doctorLive`)
- * do NOT include a discharge/attender line, yet this page still offers
- * one. Either discharge/attender support becomes a real fifth service
- * line, or this page's copy needs a rewrite — that is a product decision,
- * not something to silently reconcile here. The v4 design carries the
- * same premise, so it does not resolve this either.
- */
 export default async function HospitalsPage(props: PageProps<"/[locale]/for-hospitals">) {
   const { locale } = await props.params;
   if (!isLocale(locale)) notFound();

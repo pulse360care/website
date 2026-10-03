@@ -80,7 +80,7 @@ export const en = {
         {
           pill: "At home",
           title: "Home lab collection",
-          body: "Sample taken at home, report back to you.",
+          body: "Someone comes to the house to take the sample, so nobody has to travel.",
           brief: "Sample collector labelling a vial at a dining table, hands in focus.",
         },
       ],
@@ -100,7 +100,7 @@ export const en = {
         {
           pill: "At home",
           title: "Home lab collection",
-          body: "A sample taken at home and sent to the lab. The report comes back to you.",
+          body: "Someone comes to the house to take the sample, so nobody has to travel.",
           brief: "Sample collector labelling a vial at a dining table, hands in focus.",
         },
       ],
@@ -120,26 +120,26 @@ export const en = {
           title: "We match a verified professional",
           body: "From people already checked and working in your neighbourhood.",
           brief: "Operations reviewer at a desk comparing a certificate against a screen.",
-          items: ["Confirmed within 10 minutes", "Their name and qualification", "Someone else if they cannot come"],
+          items: ["Confirmed before the visit", "Their name and qualification", "Someone else if they cannot come"],
         },
         {
           title: "You confirm the time and the price",
           body: "Nothing is fixed until you say yes to both.",
           brief: "Professional at a front door being greeted, seen from inside the house.",
-          items: ["Within half an hour of the slot", "Updates on WhatsApp", "Support if something goes wrong"],
+          items: ["Told if anything changes", "Updates on WhatsApp", "Support if something goes wrong"],
         },
       ],
       step4Four: {
         title: "What comes next is written down",
-        body: "You are told who is coming and when. Afterwards you get a short note of what was done — and if a doctor decides another service is needed, they refer you to it inside Pulse. A prescription the doctor writes is recorded here for your reference; Pulse does not issue it.",
+        body: "You are told who is coming and when. Afterwards you get a short note of what was done — and if a doctor decides another service is needed, they refer you to it. A prescription the doctor writes is recorded here for your reference; Pulse does not issue it. The Pulse app is coming soon.",
         brief: "Two generations looking at a phone together on a veranda.",
-        items: ["Referral from your doctor", "Your reports in one place", "Book the next step in a tap"],
+        items: ["Referral from your doctor", "Your reports in one place", "App coming soon"],
       },
       step4Three: {
         title: "What comes next is written down",
-        body: "You are told who is coming and when. Afterwards you get a short note of what was done, and when the next visit is due — not a phone call you have to remember.",
+        body: "You are told who is coming and when. Afterwards you get a short note of what was done, and when the next visit is due — not a phone call you have to remember. The Pulse app is coming soon.",
         brief: "Two generations looking at a phone together on a veranda.",
-        items: ["Your reports in one place", "Nothing to repeat next time", "Book the next step in a tap"],
+        items: ["Your reports in one place", "Nothing to repeat next time", "App coming soon"],
       },
     },
     comparison: {
@@ -214,9 +214,9 @@ export const en = {
         },
         {
           q: "Can I choose the nurse myself?",
-          a: "No. We assign a verified professional, which is what lets us promise confirmation in ten minutes and send someone else if the first cannot come.",
+          a: "No. We assign a verified professional, and send someone else if the first cannot come.",
         },
-        { q: "How do I pay?", a: "Online, before the visit, by card or UPI. We do not take cash." },
+        { q: "How do I pay?", a: "We agree the price with you before the visit and tell you how to pay." },
         {
           q: "Is my information private?",
           a: "The professional visiting sees the address and the reason for the visit, nothing else. Every view of a record is logged.",
@@ -230,7 +230,7 @@ export const en = {
     joinTeaser: {
       eyebrow: "Join us",
       heading: "Work near where you live",
-      body: "For nurses, attenders and physiotherapists in Chennai and its surroundings. Joining is free, and there are never more than three documents.",
+      body: "For nurses, physiotherapists and sample collectors in Chennai and its surroundings. Joining is free, and there are never more than three documents.",
       zone: "Chennai · zone based",
       cta: "Message us on WhatsApp",
     },
@@ -278,14 +278,14 @@ export const en = {
     eyebrow: "About us",
     h1: "We started this because arranging care for a parent should not depend on luck.",
     lead: "When someone comes home from hospital, the family is handed a list of things to arrange and no way to arrange them.",
-    whatWeWillNot: {
-      eyebrow: "What we will not do",
-      heading: "Some things we have decided against",
+    whatWeWillDo: {
+      eyebrow: "What we will do",
+      heading: "Some things we have decided to always do",
       items: [
-        "We will not tell you what is wrong with someone. Our doctors do that; the app does not.",
-        "We are not an emergency service. In an emergency, call 108.",
-        "We will not list anyone we have not checked ourselves.",
-        "We will not claim to cover the whole city before we do.",
+        "We will send only people we have checked ourselves, and tell you who is coming before they arrive.",
+        "We will leave diagnosis to qualified doctors, so every medical answer comes from a person you can speak to.",
+        "We will be clear about where we can reach today, and grow area by area.",
+        "We will point you to 108 straight away if it is an emergency.",
       ],
     },
   },
@@ -397,11 +397,11 @@ export const en = {
     rolesHeading: "Which role are you applying for?",
     roles: [
       { title: "Nurse", body: "Nursing council registration · photo ID · police verification certificate." },
-      { title: "Attender", body: "Attender training certificate · photo ID · police verification certificate." },
       {
         title: "Physiotherapist",
         body: "Council registration or degree certificate · photo ID · police verification certificate.",
       },
+      { title: "Sample collector", body: "Sample collector training certificate · photo ID · police verification certificate." },
       {
         title: "Doctor",
         body: "NMC or State Medical Council registration · qualification certificate · the specialisation you want listed · photo ID · police verification certificate.",
@@ -410,19 +410,18 @@ export const en = {
     ],
     approvalHeading: "How long approval takes",
     approvalNoteThree: "The slot is designed and reserved. No number goes here until we have measured it across real applications — a guess would be the first promise we break.",
-    approvalNoteFour: "Still withheld, and now for a second reason: doctor verification and attender verification are not the same job, so one published figure would be wrong for at least one role. When we publish, it will be per role or not at all.",
-    noLabNote: "Home lab collection launches as a service, but whether the sample is drawn by Pulse staff or by a partner lab is not decided. No role card is drawn until it is — inventing a credential list would put a promise on the site that nobody has agreed to keep.",
+    approvalNoteFour: "Still withheld, and now for a second reason: doctor verification and sample-collector verification are not the same job, so one published figure would be wrong for at least one role. When we publish, it will be per role or not at all.",
     whatsappCta: "Message us on WhatsApp",
   },
   hospitals: {
     eyebrow: "For hospitals",
-    h1: "Your discharge desk can hand over more than a phone number.",
-    intro: "Patients leave with instructions for care they then have to arrange themselves.",
-    howHeading: "What we can take off the discharge desk",
+    h1: "Refer patients to checked care at home.",
+    intro: "When a patient needs nursing, physiotherapy, a lab test or a doctor after they leave you, the family can get it at home from someone we have checked.",
+    howHeading: "What a referral to Pulse looks like",
     hospBlocks: [
       {
-        head: "A referral instead of a phone number",
-        body: "Hand the family a booked visit rather than a list of things to arrange. We confirm and tell them who is coming.",
+        head: "One of our services, at home",
+        body: "Home nursing, home physiotherapy, home lab collection or a doctor consultation. We confirm with the family and tell them who is coming.",
       },
       {
         head: "Verified professionals, checked by a person",
@@ -499,8 +498,8 @@ export const en = {
     },
     professional: {
       roleHeading: "What is your role?",
-      rolesThree: ["Nurse", "Attender", "Physiotherapist"],
-      rolesFour: ["Nurse", "Attender", "Physiotherapist", "Doctor"],
+      rolesThree: ["Nurse", "Physiotherapist", "Sample collector"],
+      rolesFour: ["Nurse", "Physiotherapist", "Sample collector", "Doctor"],
       registrationHeading: "Do you have a registration number?",
       registration: ["Yes", "Applied for it", "No"],
     },
