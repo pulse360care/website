@@ -1,10 +1,10 @@
 import { ImageSlot } from "./ImageSlot";
 
 /**
- * WEB-D02: requires real photographs and real names. Neither exists yet,
- * so the caller gates this whole component on `foundersVisible` — when
- * false, this section must not render at all (no silhouettes, no "team
- * photo coming soon").
+ * WEB-D02: requires real photographs and real names. Both now exist
+ * (Sidhu, Prem), so `foundersVisible` is on — see lib/config.ts. Keep
+ * the component gated on that flag so a future founder change can hide
+ * it again cleanly if needed, rather than deleting/re-adding this file.
  */
 export function Founders({
   eyebrow,
@@ -28,7 +28,7 @@ export function Founders({
         <div className="two-col">
           {people.map((person, i) => (
             <div key={i} style={{ display: "flex", flexDirection: "column", gap: "var(--space-sm)", padding: "var(--space-md)", border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-md)" }}>
-              <ImageSlot ratio="1/1" label="PORTRAIT" brief={person.brief} />
+              <ImageSlot ratio="1/1" label="PORTRAIT" brief={person.brief} src={`/images/panels/panel-founder-${i}.jpg`} />
               <div style={{ fontSize: "var(--step-h3-en)", fontWeight: 600, lineHeight: "var(--leading-h3-en)" }}>{person.name}</div>
               <div style={{ fontSize: 13, fontWeight: 600, color: "var(--color-text-brand)" }}>{person.role}</div>
               <p style={{ margin: 0, fontSize: "var(--step-body-en)", lineHeight: "var(--leading-body-en)", color: "var(--color-text-secondary)" }}>{person.bio}</p>

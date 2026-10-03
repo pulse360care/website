@@ -30,11 +30,11 @@ export const tamilLive = false;
 
 /**
  * The founders section requires real photographs and real names (WEB-D02).
- * Neither exists yet, so the section ships removed rather than with
- * placeholder silhouettes or "team photo coming soon" — flip once content
- * is supplied.
+ * Both are supplied now (Sidhu, Prem — see public/images/panels/panel-founder-*.jpg
+ * and lib/i18n/en.ts `home.founders.people`); bios are still placeholder text,
+ * pending the founders' own words.
  */
-export const foundersVisible = false;
+export const foundersVisible = true;
 
 /**
  * Primary CTA destination (CHANGES-2026-09-30 #8). The design's earlier

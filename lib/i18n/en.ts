@@ -161,16 +161,16 @@ export const en = {
       note: "We are not listing our professionals here. They are verified, and you will meet the one assigned to your visit — but we do not advertise individuals.",
       people: [
         {
-          name: "[Founder name]",
+          name: "Sidhu",
           role: "Founder",
-          bio: "Placeholder. Real names and photographs go here — with no statistics and no testimonials, this section carries the trust.",
-          brief: "Founder portrait, real person, natural light, Chennai.",
+          bio: "Placeholder bio — a few sentences in Sidhu's own words go here.",
+          brief: "Portrait of Sidhu, founder of Pulse.",
         },
         {
-          name: "[Co-founder name]",
+          name: "Prem",
           role: "Co-founder",
-          bio: "Placeholder bio, two or three sentences in their own words.",
-          brief: "Co-founder portrait, same treatment.",
+          bio: "Placeholder bio — a few sentences in Prem's own words go here.",
+          brief: "Portrait of Prem, co-founder of Pulse.",
         },
       ],
     },
@@ -198,7 +198,7 @@ export const en = {
     why: {
       eyebrow: "Why we started",
       body: "Placeholder. A short statement from the founder about the family situation that started this — in their own words, not marketing copy. This section stands where a testimonials block would normally go. We have no patients yet, so we are not inventing any.",
-      signature: "[Founder name], Chennai",
+      signature: "Sidhu, Chennai",
     },
     faq: {
       eyebrow: "Common questions",

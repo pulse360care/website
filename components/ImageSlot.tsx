@@ -11,7 +11,7 @@
  * for real photography per-slot, not by reverting to `src`-less mode.
  *
  * Without `src`: falls back to the neutral dashed-border placeholder, never
- * stock imagery — used where no panel exists yet (e.g. founders, WEB-D02).
+ * stock imagery — used where no panel exists yet.
  */
 export function ImageSlot({
   ratio,

@@ -69,7 +69,12 @@ needs), **hospitals page reframed** as a referral into
 the four existing service lines rather than a discharge/attender line
 (CHANGES-2026-09-30 #11 — no more service-line mismatch), **home lab
 collection role card** resolved as "Sample collector" (CHANGES-2026-09-30
-#12 — the `professionals.roles` card is real, not a placeholder note).
+#12 — the `professionals.roles` card is real, not a placeholder note),
+**founders section is live** (`foundersVisible` in `lib/config.ts`) —
+real names (Sidhu, Prem) and real photos
+(`public/images/panels/panel-founder-{0,1}.jpg`) are in; only the bios
+and the "why we started" quote body are still placeholder text, pending
+the founders' own words.
 Still open:
 
 1. **Approval time** for professional applications is withheld
@@ -83,9 +88,6 @@ Still open:
 4. **Tamil native-speaker review** — nothing in `lib/i18n/ta.ts` has been
    reviewed by a Tamil speaker; treat every string as a length/layout
    placeholder.
-5. Founders section (`foundersVisible` in `lib/config.ts`) ships **off**
-   — no real photos/names supplied. Flip once they exist; never fill with
-   placeholder headshots.
 
 ## Structure
 
