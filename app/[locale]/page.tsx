@@ -107,7 +107,9 @@ export default async function HomePage(props: PageProps<"/[locale]">) {
       </Reveal>
 
       <Reveal>
-        <ArticlesTeaser locale={locale} eyebrow={home.articlesTeaser.eyebrow} heading={home.articlesTeaser.heading} posts={dict.blog.posts} />
+        {/* CHANGES-2026-10-10 #7: home page shows the 3 newest (posts are
+            ordered newest-first); the blog index shows all of them. */}
+        <ArticlesTeaser locale={locale} eyebrow={home.articlesTeaser.eyebrow} heading={home.articlesTeaser.heading} posts={dict.blog.posts.slice(0, 3)} />
       </Reveal>
 
       <Reveal>

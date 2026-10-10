@@ -1,3 +1,27 @@
+// CHANGES-2026-10-10 #7: explicit block-type union for article bodies.
+// Declared here (not inferred) so `t` stays a literal ("h"/"h3"/...)
+// instead of widening to `string` — see the `satisfies Post[]` below,
+// which checks against this without losing that narrowing.
+export type ArticleBlock =
+  | string
+  | { t: "h"; text: string }
+  | { t: "h3"; text: string }
+  | { t: "ul"; items: string[] }
+  | { t: "note"; text: string }
+  | { t: "q"; q: string; text: string };
+
+export type Post = {
+  slug: string;
+  date: string;
+  readTime: string;
+  title: string;
+  excerpt: string;
+  image: string;
+  body: ArticleBlock[];
+  brief: string;
+  reviewed: boolean;
+};
+
 export const en = {
   meta: {
     title: "Pulse — home healthcare in Chennai and its surroundings",
@@ -383,13 +407,137 @@ export const en = {
     // with v4's 3 real articles, copied verbatim. `reviewed` gates
     // noindex + sitemap exclusion (app/sitemap.ts, blog/[slug]/page.tsx)
     // until a clinician signs off.
+    // Order is newest first (CHANGES-2026-10-10 #7). `image` is a stable
+    // per-post key for /images/panels/panel-{image}.png — deliberately NOT
+    // derived from array position, because prepending the newest post would
+    // otherwise silently reassign every older post's photo.
     posts: [
+      // CHANGES-2026-10-10 #7 — new article, copied verbatim from
+      // articles[0] in v4.dc.html. Body mixes plain paragraphs with typed
+      // blocks (h/h3/ul/note/q); see blog/[slug]/page.tsx for the renderer
+      // and the FAQPage JSON-LD built from the five `q` blocks.
+      {
+        slug: "keeping-the-bigger-picture-between-visits",
+        date: "October 2026",
+        readTime: "5 min read",
+        title: "Home nursing care: how to keep the bigger picture between visits",
+        excerpt: "Each visit tells you about that day. Here is how families keep the weeks in between connected.",
+        image: "art-3",
+        body: [
+          "When a parent needs nursing at home, whether they are getting older or recovering after a hospital stay, each visit tends to be arranged on its own. A nurse comes, does what was asked, and leaves. The next need can feel like starting again from the beginning.",
+          "Home nursing is genuinely valuable. But for families managing care over weeks or months, the visits are only part of the picture. This guide covers why one-off visits can leave gaps, and the simple things families can do to keep everything connected.",
+          { t: "h", text: "Why one-off visits can leave gaps" },
+          "A single nursing visit tells you about that day: what was done, and how your parent seemed. It doesn't tell you, on its own, how things have been going across several weeks.",
+          "That's not a failing of the nurse. A visit is focused on the care arranged for it. The bigger picture has to be held by someone, and in most families that someone is you.",
+          "Gaps tend to appear when:",
+          {
+            t: "ul",
+            items: [
+              "Notes from each visit live in different places, or only in someone's memory",
+              "More than one family member is involved and nobody has the full story",
+              "The person arranging care lives in another city or another country",
+              "Your parent's own doctor doesn't hear about what's happening at home",
+            ],
+          },
+          "None of these needs special tools to fix. They need a little structure.",
+          { t: "h", text: "Practical steps for families" },
+          { t: "h3", text: "Keep one simple care notebook" },
+          "A notebook, a shared note on your phone or a WhatsApp group with just the people involved will do. After each visit, write down:",
+          {
+            t: "ul",
+            items: [
+              "The date and which service it was (nursing, physiotherapy, lab test, caregiver or doctor visit)",
+              "What was done",
+              "Anything the nurse or doctor asked the family to watch for or follow up on",
+              "Questions that came up and haven't been answered yet",
+            ],
+          },
+          "Keep it factual. The aim is not to assess your parent's health yourself. It is to make sure nothing anyone asked you to remember gets lost.",
+          { t: "h3", text: "Ask the same few questions after every visit" },
+          "Before the nurse leaves, it helps to ask:",
+          {
+            t: "ul",
+            items: [
+              "“Is there anything you'd like us to keep an eye on before the next visit?”",
+              "“Is there anything we should mention to the doctor?”",
+              "“When do you think the next visit should be?”",
+            ],
+          },
+          "Asking the same questions each time makes it easier to see if something has changed.",
+          { t: "h3", text: "Keep the doctor in the loop" },
+          "Home nursing works best alongside a doctor, not instead of one. If your parent has a regular doctor, share your notebook with them at appointments. If the nurse has suggested mentioning something to a doctor, don't wait for the next routine appointment. Ask the clinic how they'd like you to raise it.",
+          { t: "h3", text: "Decide who holds the bigger picture" },
+          "When siblings or relatives share caregiving, agree on one person who keeps the notebook up to date and is the main contact for professionals. Others can still help. They just pass updates through that one person, so the story stays in one place.",
+          { t: "h3", text: "If you're coordinating from another city or country" },
+          "Many families manage a parent's care from a distance. A few things help:",
+          {
+            t: "ul",
+            items: [
+              "Ask whoever is at home, family member or neighbour, to send a short message after each visit",
+              "Keep the care notebook somewhere you can both see it",
+              "Know the home address details and the nearest hospital in advance, and keep them saved",
+              "Choose a booking method where you can see what is booked, when, and its status, without needing a phone call each time",
+            ],
+          },
+          { t: "h", text: "What home nursing is, and what it isn't" },
+          "Home nursing is planned care in the home: support arranged in advance for a parent who is older, unwell or recovering.",
+          {
+            t: "note",
+            text: "It is not an emergency service. If someone is seriously unwell or there is a medical emergency, call 108 or go to the nearest hospital straight away. Don't wait for a scheduled visit or try to book one.",
+          },
+          "Home nursing also doesn't replace your parent's own doctor or any specialist they already see. Think of it as one part of their care, and the care notebook as what links the parts together.",
+          { t: "h", text: "Where Pulse fits" },
+          "Pulse arranges connected home healthcare in Tamil or English, in Chennai and its surroundings. Families can book:",
+          {
+            t: "ul",
+            items: [
+              "Home nursing",
+              "Home physiotherapy",
+              "Home lab collection",
+              "Caregivers for day-to-day support at home",
+              "Doctor consultations at home",
+            ],
+          },
+          "You choose the service and a time. Pulse then assigns a professional who has been verified before they can be booked. Fees are shown before you pay, and payment is online by UPI or card.",
+          "Pulse is built around the problem this article describes: care that starts from zero each time. After a doctor's visit, if the doctor recommends nursing, physiotherapy, a lab test or a caregiver, that next step can be arranged through Pulse rather than starting a fresh search. Where a doctor writes a prescription, a record of it can be kept for reference.",
+          "It doesn't replace the care notebook or your conversations with your parent's doctor. It just keeps more of the picture in one place.",
+          { t: "h", text: "Frequently asked questions" },
+          {
+            t: "q",
+            q: "Can a home nurse replace my parent's regular doctor?",
+            text: "No. Home nursing supports the care your parent's doctor oversees; it doesn't replace it. Keep their doctor informed about what's happening at home.",
+          },
+          {
+            t: "q",
+            q: "How can I keep track of my parent's care if I live in another city?",
+            text: "Keep one shared care notebook, ask someone at home to send a short update after each visit, and use a booking method that shows you what's booked and its status.",
+          },
+          {
+            t: "q",
+            q: "What should I ask the nurse after a home visit?",
+            text: "Ask whether there's anything to keep an eye on, anything to tell the doctor, and when the next visit should be. Write the answers down.",
+          },
+          {
+            t: "q",
+            q: "Is home nursing suitable for emergencies?",
+            text: "No. Home nursing is planned care. In an emergency, call 108 or go to the nearest hospital.",
+          },
+          {
+            t: "q",
+            q: "Can a doctor arrange nursing, physiotherapy, lab tests or a caregiver after a visit?",
+            text: "Yes. On Pulse, if the doctor recommends one of these after a home visit, it can be arranged through us.",
+          },
+        ],
+        brief: "Open notebook with handwritten visit notes on a dining table, a phone and reading glasses beside it, daylight.",
+        reviewed: false,
+      },
       {
         slug: "before-a-parent-comes-home-from-hospital",
         date: "October 2026",
         readTime: "3 min read",
         title: "What to arrange before a parent comes home from hospital",
         excerpt: "The discharge summary tells you what happened. It rarely tells you what to do on Tuesday.",
+        image: "art-0",
         body: [
           "Before the day of discharge, ask the ward for three things in writing: the medicines and their timings, what the person can and cannot do yet, and the date of the next review.",
           "Then look at the house with fresh eyes. A clear path from the bed to the bathroom, a chair with arms, and a light that can be reached at night matter more than any equipment.",
@@ -405,6 +553,7 @@ export const en = {
         readTime: "2 min read",
         title: "How to tell whether a home nurse is actually qualified",
         excerpt: "There is a registration number, and there is a way to check it.",
+        image: "art-1",
         body: [
           "Every qualified nurse in Tamil Nadu is registered with the Tamil Nadu Nurses and Midwives Council and has a registration number. Ask for it, and for the certificate it is printed on.",
           "Check that the name on the certificate matches the name on a government ID, and that the photograph matches the person in front of you.",
@@ -420,6 +569,7 @@ export const en = {
         readTime: "2 min read",
         title: "Physiotherapy at home after a fracture",
         excerpt: "Recovery is measured in weeks of repetition, not a single appointment.",
+        image: "art-2",
         body: [
           "After a fracture, the treating doctor decides when movement can start and how much weight the bone can take. Physiotherapy follows that plan; it does not replace it.",
           "Most of the work is short, regular sessions and simple exercises repeated between them. Doing them at home removes the hardest part for many families: getting someone in pain to a clinic and back.",
@@ -429,7 +579,7 @@ export const en = {
         brief: "Walking frame beside a bed, morning light, nobody in frame.",
         reviewed: false,
       },
-    ],
+    ] satisfies Post[],
     disclaimer: "General information, not medical advice.",
   },
   professionals: {

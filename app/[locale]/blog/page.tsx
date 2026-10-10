@@ -28,7 +28,10 @@ export default async function BlogIndexPage(props: PageProps<"/[locale]/blog">) 
         <p style={{ margin: "var(--space-md) 0 var(--space-xl)", maxWidth: "58ch", fontSize: "var(--step-lead-en)", lineHeight: isTamil ? "var(--leading-lead-ta)" : "var(--leading-lead-en)", color: "var(--color-text-secondary)" }}>
           {t.intro}
         </p>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: "var(--space-md)", alignItems: "stretch" }}>
+        {/* CHANGES-2026-10-10 #7: all posts, 2 columns on desktop — reuses
+            the site's existing .two-col utility (app/globals.css) rather
+            than an auto-fit grid, which would give 3+ columns at 1280px. */}
+        <div className="two-col" style={{ alignItems: "stretch" }}>
           {t.posts.map((post) => (
             <Link
               key={post.slug}
