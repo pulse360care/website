@@ -3,6 +3,8 @@ export const en = {
     title: "Pulse — home healthcare in Chennai and its surroundings",
     description:
       "Doctor consultations, nursing, physiotherapy and lab collection, arranged at home in Chennai and its surroundings.",
+    // CHANGES-2026-10-10 #1: dropped "and caregivers" — item 2 (the
+    // Caregivers service) is out of scope for this slice.
   },
   nav: {
     brand: "Pulse",
@@ -28,6 +30,8 @@ export const en = {
     social: ["WhatsApp"],
     contactHeading: "Contact",
     localityLink: "Chennai and surroundings",
+    // CHANGES-2026-10-10 #5 — verbatim from v4.
+    doctorLedTagline: "A doctor-led home healthcare service, Chennai.",
     legal: "© Pulse360Care. Placeholder legal line",
     privacy: "Privacy",
     terms: "Terms",
@@ -38,8 +42,10 @@ export const en = {
     hero: {
       eyebrow: "Chennai · care at home",
       fourService: {
-        lines: ["Care comes to", "your parents —", "at home, or by video"],
-        lead: "Doctor consultations, nursing, physiotherapy and lab collection, arranged in Chennai and its surroundings. Almost all of it happens at your parents’ home — a consultation can start on video when that is faster.",
+        lines: ["Care comes to", "your parents —", "at home"],
+        // CHANGES-2026-10-10 #1: doctor consultation is home-only now, no
+        // remote exception. "and caregivers" dropped — item 2 out of scope.
+        lead: "Doctor consultations, nursing, physiotherapy and lab collection, arranged at home in Chennai and its surroundings.",
       },
       threeService: {
         lines: ["Care comes to", "your parents —", "at home"],
@@ -49,23 +55,27 @@ export const en = {
       heroBrief: "A nurse and an elderly man at a doorway in a Chennai home, warm daylight, not clinical. Subject right-of-centre.",
       heroTrust: ["Checked by a person", "Works in Tamil", "One price, agreed first"],
       secondaryCta: "Talk to someone",
+      // CHANGES-2026-10-10 #5: small secondary line under the CTA buttons.
+      doctorLedNote: "Founded and run by doctors in Chennai.",
     },
     trustStrip: [
-      "ID and police verification on every person who visits",
+      // CHANGES-2026-10-10 #3: police verification removed.
+      "Government ID checked on every person who visits",
       "Nursing council registration checked before a first visit",
       "The same attender returns for repeat visits wherever possible",
       "One price, told to you before anyone is booked",
     ],
     services: {
       heading: "What we arrange",
-      subFour: "Four services, all at home. A doctor consultation can also happen on video.",
+      // CHANGES-2026-10-10 #1: doctor consultation is home-only, no video.
+      subFour: "Four services, all at home.",
       subThree: "Three services, every one of them at your parents’ home in Chennai and its surroundings.",
       four: [
         {
-          pill: "Home or video",
+          pill: "At home",
           title: "Doctor consultation",
-          body: "By video or at home, with a referral onward if you need one.",
-          brief: "Doctor on a video call, seen over a family member's shoulder in a Chennai living room.",
+          body: "A doctor visits you at home. They can refer you straight on.",
+          brief: "Doctor checking an elderly woman's blood pressure in her Chennai living room, family member beside her.",
         },
         {
           pill: "At home",
@@ -159,19 +169,21 @@ export const en = {
     },
     founders: {
       eyebrow: "Who we are",
-      heading: "Who is behind Pulse",
+      // CHANGES-2026-10-10 #5 — verbatim from v4.
+      heading: "Started by two doctors",
       note: "We are not listing our professionals here. They are verified, and you will meet the one assigned to your visit — but we do not advertise individuals.",
+      // CHANGES-2026-10-10 #6 — real names and bios, verbatim from v4.
       people: [
         {
-          name: "Sidhu",
+          name: "Dr N Sidhhartha Shankar, MBBS, MD, DNB",
           role: "Founder",
-          bio: "Placeholder bio — a few sentences in Sidhu's own words go here.",
+          bio: "Witnessing critical ICU delays firsthand inspired me to build a home healthcare platform that brings doctors and nurses directly to patients before emergencies strike. By delivering timely, proactive medical support at home, we help families catch health issues early, avoid unnecessary hospitalizations, and bridge the gap to better care.",
           brief: "Portrait of Sidhu, founder of Pulse.",
         },
         {
-          name: "Prem",
+          name: "Dr E S Prem Anand, MBBS, MD, DNB",
           role: "Co-founder",
-          bio: "Placeholder bio — a few sentences in Prem's own words go here.",
+          bio: "Inspired by caring for my own grandparents, I transitioned from my work as a radiologist to build a home-based healthcare platform centered on dignity and independence. We deliver trusted medical, nursing, and daily support directly to families, making compassionate quality care accessible right where it matters most.",
           brief: "Portrait of Prem, co-founder of Pulse.",
         },
       ],
@@ -179,7 +191,8 @@ export const en = {
     check: {
       eyebrow: "What we check",
       title: "Your care in checked hands",
-      body: "Every professional is reviewed by a person on our team before they can visit anyone. Not a form, not software — someone reads the documents.",
+      // CHANGES-2026-10-10 #5 — verbatim from v4.
+      body: "Every professional is reviewed by our medical team, led by doctors, before they can visit anyone. Not a form, not software — someone reads the documents.",
       brief: "Operations reviewer's desk: certificate, ID and laptop, hands only, no face.",
       rows: [
         "Council registration number, checked against the certificate",
@@ -205,7 +218,9 @@ export const en = {
       // (lib/config.ts) until the owner signs off. Verbatim from v4.
       bodyFinal:
         "When someone in our own family came home from hospital, the hardest part was not the illness. It was the phone calls: finding a nurse, wondering whether she was qualified, and hoping she would turn up. We started Pulse so that other families in Chennai can get checked, qualified care at home without depending on luck or a friend of a friend.",
-      signatureFinal: "Sidhu and Prem, founders, Chennai",
+      // CHANGES-2026-10-10 #5: added the "Dr" honorific. Still gated behind
+      // whyStartedApproved (lib/config.ts) — unchanged by this slice.
+      signatureFinal: "Dr Sidhu and Dr Prem, founders, Chennai",
     },
     faq: {
       eyebrow: "Common questions",
@@ -268,7 +283,8 @@ export const en = {
     steps: [
       {
         title: "Identity",
-        body: "Government photo ID and a police verification certificate, checked against each other. The certificate has to be current, not “applied for”.",
+        // CHANGES-2026-10-10 #3: police verification removed.
+        body: "Government photo ID, confirmed against the person who arrives at your door.",
       },
       {
         title: "Qualification",
@@ -312,12 +328,13 @@ export const en = {
         ],
       },
       {
-        head: "What we never ask for",
-        mark: "—",
+        // CHANGES-2026-10-10 #4 — verbatim from v4.
+        head: "Your health stays private",
+        mark: "✓",
         items: [
-          "Symptoms, to decide what is wrong. We do not do triage.",
-          "Test results or a diagnosis, to book a visit",
-          "Anything about a condition on a web form",
+          "Health details are shared only with the professional caring for you, in person.",
+          "Book with just the basics. No test results or diagnosis needed.",
+          "Our forms stay short and simple, with no medical questions.",
         ],
       },
       {
@@ -403,16 +420,15 @@ export const en = {
     lead: "Joining is free. Never more than three documents, and you can send them on WhatsApp.",
     zone: "Chennai · zone based",
     rolesHeading: "Which role are you applying for?",
+    // CHANGES-2026-10-10 #3: police verification removed from every role,
+    // verbatim from v4.
     roles: [
-      { title: "Nurse", body: "Nursing council registration · photo ID · police verification certificate." },
-      {
-        title: "Physiotherapist",
-        body: "Council registration or degree certificate · photo ID · police verification certificate.",
-      },
-      { title: "Sample collector", body: "Sample collector training certificate · photo ID · police verification certificate." },
+      { title: "Nurse", body: "Council registration · Government ID · Photo." },
+      { title: "Physiotherapist", body: "Council registration · Government ID · Photo." },
+      { title: "Sample collector", body: "Training certificate · Government ID · Photo." },
       {
         title: "Doctor",
-        body: "NMC or State Medical Council registration · qualification certificate · the specialisation you want listed · photo ID · police verification certificate.",
+        body: "Medical council registration · MBBS · Government ID.",
         note: "Doctor applications are reviewed separately, and each item is confirmed with the body that issued it. Expect it to take longer than a nursing application.",
       },
     ],
@@ -439,26 +455,25 @@ export const en = {
     cta: "Talk to us",
   },
   doctor: {
-    h1: "Talk to a doctor — at the house, or on video",
-    lead: "A full consultation with a registered doctor, and a referral onward if one is needed. You choose where it happens; the price for each is told to you before anything is booked.",
-    waysHeading: "Two ways it happens",
+    // CHANGES-2026-10-10 #1: doctor consultation is home-only now. This
+    // page isn't in CHANGES.md's table — collapsed "two ways" to one as
+    // the minimal consequence of removing the video option; this specific
+    // copy is my own draft, not sourced from v4.
+    h1: "Talk to a doctor — at home",
+    lead: "A full consultation with a registered doctor at your parents’ home, examined in person, and a referral onward if one is needed. The price is told to you before anything is booked.",
+    waysHeading: "How it happens",
     ways: [
       {
-        pill: "On video",
-        title: "A scheduled video consultation",
-        body: "You pick a time and a doctor calls at it. Useful for a review after a hospital visit, a look at a report you already have, or a follow-up that does not need an examination. No app account, no waiting room.",
-      },
-      {
-        pill: "At the house",
+        pill: "At home",
         title: "A doctor at your parents’ home",
-        body: "The doctor comes to the house and examines in person. Booked the same way as a nursing or physiotherapy visit, and it costs more than a call — you are told which before anything is fixed.",
+        body: "The doctor comes to the house and examines in person. Booked the same way as a nursing or physiotherapy visit — the price is told to you before anything is booked.",
       },
     ],
     includesHeading: "What a consultation includes",
     includes: [
       {
         title: "The doctor’s own assessment",
-        body: "In person or on the call. Pulse arranges the consultation; it does not take part in it.",
+        body: "In person. Pulse arranges the consultation; it does not take part in it.",
       },
       {
         title: "A written note afterwards",
@@ -482,7 +497,8 @@ export const en = {
       body: "Not an emergency service. Not medical advice — nothing on this page or anywhere else on this site tells you what to do about a symptom. We do not name or picture individual doctors as a way of advertising.",
     },
     verifiedHeading: "How a doctor is verified",
-    verifiedBody: "Before a first consultation: NMC or State Medical Council registration, the qualification certificate, and the specialisation to be listed — each confirmed with the body that issued it. Identity and police verification as for every other professional.",
+    // CHANGES-2026-10-10 #3: police verification removed.
+    verifiedBody: "Before a first consultation: NMC or State Medical Council registration, the qualification certificate, and the specialisation to be listed — each confirmed with the body that issued it. Identity checked as for every other professional.",
   },
   contact: {
     eyebrow: "Contact",

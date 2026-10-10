@@ -74,16 +74,17 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
             borderTop: "1px solid rgba(255,255,255,.24)",
             fontSize: 13,
             opacity: 0.85,
-            display: "flex",
-            gap: "var(--space-sm)",
-            flexWrap: "wrap",
           }}
         >
-          <span>{dict.footer.legal}</span>
-          <span>·</span>
-          <span style={{ textDecoration: "underline" }}>{dict.footer.privacy}</span>
-          <span>·</span>
-          <span style={{ textDecoration: "underline" }}>{dict.footer.terms}</span>
+          {/* CHANGES-2026-10-10 #5: new line above the © line. */}
+          <div>{dict.footer.doctorLedTagline}</div>
+          <div style={{ marginTop: "var(--space-xs)", display: "flex", gap: "var(--space-sm)", flexWrap: "wrap" }}>
+            <span>{dict.footer.legal}</span>
+            <span>·</span>
+            <span style={{ textDecoration: "underline" }}>{dict.footer.privacy}</span>
+            <span>·</span>
+            <span style={{ textDecoration: "underline" }}>{dict.footer.terms}</span>
+          </div>
         </div>
       </div>
     </footer>

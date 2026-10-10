@@ -103,6 +103,10 @@ export function Hero({ locale, dict, lines, lead }: { locale: Locale; dict: Dict
                 {home.hero.secondaryCta}
               </Link>
             </div>
+            {/* CHANGES-2026-10-10 #5: small secondary line under the CTAs. */}
+            <p style={{ margin: "var(--space-md) 0 0", fontSize: 13, color: "var(--color-text-secondary)" }}>
+              {home.hero.doctorLedNote}
+            </p>
           </div>
           <div>
             <ImageSlot ratio="3/4" label="HERO" brief={home.hero.heroBrief} minHeight={280} src="/images/panels/panel-hero.png" />
