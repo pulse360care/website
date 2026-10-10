@@ -75,18 +75,6 @@ function LanguageToggle({ locale }: { locale: Locale }) {
   );
 }
 
-/** Ring + ECG lockup, from the identity sheet's horizontal lockup at 28px —
- * currentColor so it inherits brand blue and reverses correctly on dark
- * bands; stroke-width 7 is what the identity sheet specifies at this size. */
-function LogoMark() {
-  return (
-    <svg viewBox="0 0 64 64" width="28" height="28" fill="none" aria-hidden="true" style={{ flex: "none", display: "block" }}>
-      <path d="M32 6 A26 26 0 1 1 12.5 49.5" stroke="currentColor" strokeWidth="7" strokeLinecap="round" />
-      <path d="M8 32 H17 L22 21 L29 43 L34 32 H43" stroke="currentColor" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
 function HamburgerBars() {
   return (
     <>
@@ -161,7 +149,8 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
               textDecoration: "none",
             }}
           >
-            <LogoMark />
+            {/* eslint-disable-next-line @next/next/no-img-element -- fixed small brand mark, not a photograph needing next/image optimisation */}
+            <img src="/images/pulse-logo.svg" alt="" width={32} height={34} style={{ height: 34, width: "auto", flex: "none", display: "block" }} />
             <span>Pulse</span>
           </Link>
         </div>

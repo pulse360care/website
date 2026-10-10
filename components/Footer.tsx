@@ -76,8 +76,12 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
             opacity: 0.85,
           }}
         >
-          {/* CHANGES-2026-10-10 #5: new line above the © line. */}
-          <div>{dict.footer.doctorLedTagline}</div>
+          {/* CHANGES-2026-10-10 #5: new line above the © line. #9: logo mark beside it. */}
+          <div style={{ display: "flex", alignItems: "center", gap: "var(--space-xs)" }}>
+            {/* eslint-disable-next-line @next/next/no-img-element -- fixed small brand mark, not a photograph needing next/image optimisation */}
+            <img src="/images/pulse-logo-white.svg" alt="" width={38} height={40} style={{ height: 40, width: "auto", flex: "none", display: "block" }} />
+            <span>{dict.footer.doctorLedTagline}</span>
+          </div>
           <div style={{ marginTop: "var(--space-xs)", display: "flex", gap: "var(--space-sm)", flexWrap: "wrap" }}>
             <span>{dict.footer.legal}</span>
             <span>·</span>
