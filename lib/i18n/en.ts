@@ -67,9 +67,10 @@ export const en = {
     ],
     services: {
       heading: "What we arrange",
-      // CHANGES-2026-10-10 #1: doctor consultation is home-only, no video.
-      subFour: "Four services, all at home.",
-      subThree: "Three services, every one of them at your parents’ home in Chennai and its surroundings.",
+      // CHANGES-2026-10-10 #1/#2: doctor consultation is home-only, no
+      // video; Caregivers added, so the counts in both sub-headings move up.
+      subFour: "Five services, all at home.",
+      subThree: "Four services, every one of them at your parents’ home in Chennai and its surroundings.",
       four: [
         {
           pill: "At home",
@@ -95,6 +96,13 @@ export const en = {
           body: "Someone comes to the house to take the sample, so nobody has to travel.",
           brief: "Sample collector labelling a vial at a dining table, hands in focus.",
         },
+        // CHANGES-2026-10-10 #2 — verbatim from v4.
+        {
+          pill: "At home",
+          title: "Caregivers",
+          body: "Day-to-day care and support at home: meals, bathing, moving around safely, company.",
+          brief: "Caregiver helping an elderly woman walk from bedroom to living room, steady hand at her elbow, daylight.",
+        },
       ],
       three: [
         {
@@ -115,6 +123,13 @@ export const en = {
           body: "Someone comes to the house to take the sample, so nobody has to travel.",
           brief: "Sample collector labelling a vial at a dining table, hands in focus.",
         },
+        // CHANGES-2026-10-10 #2 — verbatim from v4.
+        {
+          pill: "At home",
+          title: "Caregivers",
+          body: "Day-to-day care and support at home: meals, bathing, moving around safely, company.",
+          brief: "Caregiver helping an elderly woman walk from bedroom to living room, steady hand at her elbow, daylight.",
+        },
       ],
     },
     howItWorks: {
@@ -126,7 +141,8 @@ export const en = {
           title: "Tell us what is needed",
           body: "A short call or a message. No forms about the patient.",
           brief: "Woman in her forties on a phone at a kitchen table, evening light.",
-          items: ["Three services", "Your address", "A time that suits you"],
+          // CHANGES-2026-10-10 #2: Caregivers added, so the count moves up.
+          items: ["Five services", "Your address", "A time that suits you"],
         },
         {
           title: "We match a verified professional",
@@ -252,8 +268,10 @@ export const en = {
     joinTeaser: {
       eyebrow: "Join us",
       heading: "Work near where you live",
-      bodyThree: "For nurses, physiotherapists and sample collectors in Chennai and its surroundings. Joining is free, and there are never more than three documents.",
-      bodyFour: "For doctors, nurses, physiotherapists and sample collectors in Chennai and its surroundings. Joining is free, and there are never more than three documents.",
+      // CHANGES-2026-10-10 #2: bodyFour verbatim from v4/CHANGES; bodyThree
+      // adapted the same way (dropping "doctors").
+      bodyThree: "For nurses, physiotherapists, sample collectors and caregivers in Chennai and its surroundings. Joining is free, and there are never more than three documents.",
+      bodyFour: "For doctors, nurses, physiotherapists, sample collectors and caregivers in Chennai and its surroundings. Joining is free, and there are never more than three documents.",
       zone: "Chennai · zone based",
       cta: "Message us on WhatsApp",
     },
@@ -426,6 +444,8 @@ export const en = {
       { title: "Nurse", body: "Council registration · Government ID · Photo." },
       { title: "Physiotherapist", body: "Council registration · Government ID · Photo." },
       { title: "Sample collector", body: "Training certificate · Government ID · Photo." },
+      // CHANGES-2026-10-10 #2 — verbatim from v4.
+      { title: "Caregiver", body: "Caregiving training or experience · Government ID · Photo." },
       {
         title: "Doctor",
         body: "Medical council registration · MBBS · Government ID.",
@@ -440,12 +460,14 @@ export const en = {
   hospitals: {
     eyebrow: "For hospitals",
     h1: "Refer patients to checked care at home.",
-    intro: "When a patient needs nursing, physiotherapy, a lab test or a doctor after they leave you, the family can get it at home from someone we have checked.",
+    // CHANGES-2026-10-10 #2 — verbatim from v4.
+    intro: "When a patient needs nursing, physiotherapy, a lab test, a caregiver or a doctor after they leave you, the family can get it at home from someone we have checked. Pulse is run by doctors who understand discharge.",
     howHeading: "What a referral to Pulse looks like",
     hospBlocks: [
       {
         head: "One of our services, at home",
-        body: "Home nursing, home physiotherapy, home lab collection or a doctor consultation. We confirm with the family and tell them who is coming.",
+        // CHANGES-2026-10-10 #2 — verbatim from v4.
+        body: "Home nursing, home physiotherapy, home lab collection, a caregiver or a doctor consultation. We confirm with the family and tell them who is coming.",
       },
       {
         head: "Verified professionals, checked by a person",
@@ -513,8 +535,9 @@ export const en = {
     ],
     family: {
       kindHeading: "What kind of care?",
-      kindThree: ["Nursing", "Physiotherapy", "Lab collection", "Not sure yet"],
-      kindFour: ["Doctor consultation", "Nursing", "Physiotherapy", "Lab collection", "Not sure yet"],
+      // CHANGES-2026-10-10 #2: Caregiver added before "Not sure yet".
+      kindThree: ["Nursing", "Physiotherapy", "Lab collection", "Caregiver", "Not sure yet"],
+      kindFour: ["Doctor consultation", "Nursing", "Physiotherapy", "Lab collection", "Caregiver", "Not sure yet"],
       areaHeading: "Which area?",
       areaPlaceholder: "Area, neighbourhood or pin code",
       whenHeading: "When would you need it?",
@@ -522,8 +545,9 @@ export const en = {
     },
     professional: {
       roleHeading: "What is your role?",
-      rolesThree: ["Nurse", "Physiotherapist", "Sample collector"],
-      rolesFour: ["Nurse", "Physiotherapist", "Sample collector", "Doctor"],
+      // CHANGES-2026-10-10 #2: Caregiver added.
+      rolesThree: ["Nurse", "Physiotherapist", "Sample collector", "Caregiver"],
+      rolesFour: ["Nurse", "Physiotherapist", "Sample collector", "Caregiver", "Doctor"],
       registrationHeading: "Do you have a registration number?",
       registration: ["Yes", "Applied for it", "No"],
     },

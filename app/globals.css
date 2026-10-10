@@ -258,6 +258,40 @@ button {
   }
 }
 
+/* CHANGES-2026-10-10 #2: services grid — a genuine 3-tier breakpoint
+   (unlike the rest of the site's single reflow at 900px), because the
+   change request specifies three distinct layouts: mobile stack, tablet
+   auto-fit, and an explicit 3+2 span layout at desktop. minmax(0,1fr)
+   tracks throughout so a track's content can never force horizontal
+   overflow — checked at 1280/1024/768/375px. */
+.service-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-sm);
+  align-items: stretch;
+}
+@media (min-width: 640px) {
+  .service-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+@media (min-width: 1280px) {
+  .service-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  /* 5 services (doctorLive): 3 top cards span 2 cols, 2 bottom span 3. */
+  .service-grid[data-top-count="3"] > .service-card[data-row="top"] {
+    grid-column: span 2;
+  }
+  .service-grid[data-top-count="3"] > .service-card[data-row="bottom"] {
+    grid-column: span 3;
+  }
+  /* 4 services (no doctor): 2+2, every card spans 3 cols. */
+  .service-grid[data-top-count="2"] > .service-card {
+    grid-column: span 3;
+  }
+}
+
 .chip {
   min-height: var(--size-target-min);
   display: inline-flex;

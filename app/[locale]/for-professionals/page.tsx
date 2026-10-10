@@ -11,8 +11,10 @@ export default async function ProfessionalsPage(props: PageProps<"/[locale]/for-
   const t = dict.professionals;
 
   // The doctor role card is only ever added, never disabled or greyed out
-  // — see lib/config.ts `doctorLive` (MKT-06 §5).
-  const roles = doctorLive ? t.roles : t.roles.slice(0, 3);
+  // — see lib/config.ts `doctorLive` (MKT-06 §5). roles is now [Nurse,
+  // Physio, Sample, Caregiver, Doctor] (CHANGES-2026-10-10 #2) — Caregiver
+  // is unconditional, only the trailing Doctor is gated.
+  const roles = doctorLive ? t.roles : t.roles.slice(0, -1);
   const approvalNote = doctorLive ? t.approvalNoteFour : t.approvalNoteThree;
 
   return (

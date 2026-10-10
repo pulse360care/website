@@ -40,7 +40,9 @@ export default async function HomePage(props: PageProps<"/[locale]">) {
     ...home.marquee.extra,
   ];
 
-  const joinRoles = dict.professionals.roles.slice(0, doctorLive ? 4 : 3);
+  // CHANGES-2026-10-10 #2: roles is now [Nurse, Physio, Sample, Caregiver,
+  // Doctor] — Caregiver is unconditional, only the trailing Doctor is gated.
+  const joinRoles = doctorLive ? dict.professionals.roles : dict.professionals.roles.slice(0, -1);
 
   const contactRows = [
     { label: dict.contact.whatsappLabel, value: contactDetails.whatsapp, href: contactDetails.whatsappHref },
