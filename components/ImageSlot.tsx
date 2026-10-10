@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 /**
  * Reserved image slot. Ratio is load-bearing (it reserves the space a real
  * photograph will occupy so layout doesn't jump when one lands). `label` is
@@ -5,10 +7,11 @@
  * shot description an art director would actually be handed — it must never
  * render as visible page copy (CHANGES-2026-09-30 #1), only as `alt`/`title`.
  *
- * With `src`: renders the interim brand graphic panel (see docs/design —
- * "Imagery, interim brand graphic panels") as a real `<img>`, `object-fit:
- * cover`. These are placeholders with intent, not final art — retire them
- * for real photography per-slot, not by reverting to `src`-less mode.
+ * With `src`: real photography (CHANGES-2026-10-10 #8), served through
+ * next/image (`fill`, `object-fit: cover`) — automatic WebP/AVIF, responsive
+ * sizing and lazy-loading, which the source files need at 1–2MB each.
+ * `priority` is for the one above-the-fold instance (the hero); everything
+ * else lazy-loads by default.
  *
  * Without `src`: falls back to the neutral dashed-border placeholder, never
  * stock imagery — used where no panel exists yet.
@@ -19,17 +22,20 @@ export function ImageSlot({
   brief,
   minHeight,
   src,
+  priority,
 }: {
   ratio: `${number}/${number}`;
   label: string;
   brief: string;
   minHeight?: number;
   src?: string;
+  priority?: boolean;
 }) {
   if (src) {
     return (
       <figure
         style={{
+          position: "relative",
           margin: 0,
           aspectRatio: ratio,
           minHeight,
@@ -38,8 +44,15 @@ export function ImageSlot({
           overflow: "hidden",
         }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element -- fixed-ratio interim graphic panel, not a photograph needing next/image optimisation */}
-        <img src={src} alt={brief} title={brief} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+        <Image
+          src={src}
+          alt={brief}
+          title={brief}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          priority={priority}
+          style={{ objectFit: "cover" }}
+        />
       </figure>
     );
   }
