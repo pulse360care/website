@@ -21,7 +21,7 @@ export function ServiceRow({ heading, sub, items }: { heading: string; sub: stri
   const svcTop = items.length === 5 ? 3 : 2;
 
   return (
-    <div className="page-section">
+    <div className="page-section" style={{ background: "var(--color-surface-sunken)", borderTop: "1px solid var(--color-border-subtle)", borderBottom: "1px solid var(--color-border-subtle)" }}>
       <div className="container">
         <h2 style={{ margin: "0 0 var(--space-md)", fontSize: "var(--step-h2-en)", lineHeight: "var(--leading-h2-en)", fontWeight: 700 }}>
           {heading}
@@ -43,6 +43,7 @@ export function ServiceRow({ heading, sub, items }: { heading: string; sub: stri
                   flexDirection: "column",
                   gap: "var(--space-xs)",
                   overflowWrap: "break-word",
+                  background: "var(--color-surface-base)",
                 }}
               >
                 {/* Keyed by card position (svc-{index}), per the design bundle's
