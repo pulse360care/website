@@ -59,7 +59,7 @@ export default async function HomePage(props: PageProps<"/[locale]">) {
       </Reveal>
 
       <Reveal>
-        <AboutStrip eyebrow={home.about.eyebrow} title={home.about.title} lead={home.about.lead} strip={home.about.strip} />
+        <AboutStrip eyebrow={home.about.eyebrow} title={home.about.title} lead={home.about.lead} />
       </Reveal>
 
       <Reveal>

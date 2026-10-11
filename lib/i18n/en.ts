@@ -244,11 +244,6 @@ export const en = {
       eyebrow: "About us",
       title: "Care built around the person arranging it",
       lead: "The person carrying all of this is almost never the patient. It is a working adult, often on the phone from another city, for a parent. That is who we build for.",
-      strip: [
-        "Daughter on a phone in an office, worried but composed.",
-        "Nurse and elderly patient talking, both seated, home interior.",
-        "Chennai street outside a home, autos and a compound wall.",
-      ],
     },
     why: {
       eyebrow: "Why we started",
