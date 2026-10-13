@@ -5,10 +5,10 @@
  * phone number, WhatsApp link or email address in a component.
  */
 export const contactDetails = {
-  phone: "+91 80982 25463",
-  phoneHref: "tel:+918098225463",
-  whatsapp: "+91 80982 25463",
-  whatsappHref: "https://wa.me/918098225463",
+  phone: "+91 7810 031920",
+  phoneHref: "tel:+917810031920",
+  whatsapp: "+91 7810 031920",
+  whatsappHref: "https://wa.me/917810031920",
   email: "info@pulse360care.in",
   emailHref: "mailto:info@pulse360care.in",
 };
